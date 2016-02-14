@@ -1,3 +1,8 @@
+a { 
+    font-size: 15px;
+    line-height: 1.7em;
+}
+
 .sign_in h2{
 	font-size: 18px;
 	font-weight: bold; 
@@ -11,7 +16,8 @@
     background-color: #FF6565;
     border-color: #FDA8A8;
     padding: 5px;
-    color: white; 
+    color: white;  
+    margin-bottom: 1.5em;
 }
 
 .text_bold{
@@ -65,7 +71,7 @@
     height: 17px;
     background: #CDCDCD;
     position: absolute;
-    width: 27%;
+    width: 30%;
     margin: 0 auto;
     left: 0;
     right: 135px;
@@ -79,7 +85,7 @@
     height: 17px;
     background: #CDCDCD;
     position: absolute;
-    width: 18%;
+    width: 30%;
     margin: 0 auto;
     left: 131px;
     right: 0;

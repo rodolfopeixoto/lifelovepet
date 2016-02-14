@@ -1,5 +1,5 @@
 <div class="sign_up">
-  <h2 class="text-center">Sign up</h2>
+  <h2 class="text-center">Cadastro</h2>
 
 
 <div class="row" style="border-bottom: 1px solid #D8ECCF;">
@@ -55,10 +55,10 @@
   <%= devise_error_messages! %>
   <div class="tab-content">
     <div class="tab-pane active" role="tabpanel" id="step1">
-      <h4 class="text-left text_bold">User</h4>
+      <h4 class="text-left text_bold">Usuário</h4>
 
       <div class="form-group">
-        <label>E-mail</label>
+        <label>Email</label>
         <%= f.email_field :email, :class => "form-control"%>
       </div>
 
@@ -72,46 +72,46 @@
         <%= f.date_field :dateOfBirth, :class => "form-control" %>
       </div>
 
-      <button type="button" class="btn btn-custom form-control btn-lg next-step">Next</button>
+      <button type="button" class="btn btn-custom form-control btn-lg next-step">Avançar</button>
     </div>
 
     <div class="tab-pane" role="tabpanel" id="step2"> 
-    <h4 class="text-left text_bold">User</h4>
+    <h4 class="text-left text_bold">Usuário</h4>
   
       <div class="form-group">
-         <label>FirstName</label>
+         <label>Nome</label>
         <%= f.text_field :firstName, :class => "form-control" %>
       </div>
 
       <div class="form-group">
-         <label>LastName</label>
+         <label>Sobrenome</label>
         <%= f.text_field :lastName, :class => "form-control" %>
       </div>
 
 
 
-    <button type="button" class="btn btn-custom btn-lg form-control next-step">Next</button>
+    <button type="button" class="btn btn-custom btn-lg form-control next-step">Avançar</button>
   </div>
   <div class="tab-pane" role="tabpanel" id="step3">
-  <h4 class="text-left text_bold">User</h4>
+  <h4 class="text-left text_bold">Usuário</h4>
 
     <div class="text-center">
       
       
      <div class="form-group">
-         <label>Password</label>
-      <%= f.password_field :password, :class => "form-control", placeholder: "Digite sua senha" %>
+         <label>Senha</label>
+      <%= f.password_field :password, :class => "form-control" %>
     </div> 
 
     <div class="form-group">
-         <label>Password Confirmation</label>
-      <%= f.password_field :password_confirmation, :class => "form-control", placeholder: "Confirme sua senha" %>
+         <label>Repita a senha</label>
+      <%= f.password_field :password_confirmation, :class => "form-control" %>
     </div>
 
     </div>
 
     <div class="form-group"> 
-      <%= f.submit "Sign up", :class => "btn btn-custom form-control text_bold" %>
+      <%= f.submit "Cadastrar", :class => "btn btn-custom form-control text_bold" %>
     </div>
 
     

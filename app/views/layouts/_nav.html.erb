@@ -1,0 +1,26 @@
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <ul class="nav navmenu-nav"> 
+    	<li class="active"><%= link_to '<i class="fa fa-paw"></i> Pet'.html_safe, pets_path  %></li>
+    	<li><%= link_to '<i class="fa fa-users"></i> Matches'.html_safe, "#"  %></li>
+    	<li><a href="#"><i class="fa fa-paw"></i> Preferências</a></li>
+    	<li><a href="#"><i class="fa fa-filter"></i> Filtro</a></li>
+    	<li><a href="#"><i class="fa fa-filter"></i> Configurações</a></li>
+    	<li><a href="#"><i class="fa fa-commenting"></i> Feedback</a></li>
+    	<li><a href="#"><i class="fa fa-life-ring"></i> Contato</a></li>
+    	<li><a href="#"><i class="fa fa-share"></i> Compartilhar</a></li>
+    	<li><a href="#"> <i class="fa fa-sign-out"></i> Sair</a></li>
+      <li><%= link_to '<i class="fa fa-sign-out"></i> Sair'.html_safe, destroy_user_session_path, method: :delete %></li>
+    </ul>
+</nav>
+
+<div class="navbar navbar-default navbar-fixed-top">
+  <button type="button" class="navbar-toggle button-nav" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+    <i class="fa fa-cog"></i>
+  </button>
+  <button type="button" class="navbar-toggle pull-right button-nav">
+	<i class="fa fa-heart"></i>
+  </button>
+  <a class="navbar-brand" href="#">
+   <%= image_tag "logo.png", alt: "Loveret Logo", :class => "img-responsive" %>
+</a>
+</div>

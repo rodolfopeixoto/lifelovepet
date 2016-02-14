@@ -17,10 +17,10 @@ class PetsController < ApplicationController
       @pet = Pet.new(pet_params)
 
       if @pet.save
-      	flash[:notice] = "Pet has been created."
+      	flash[:notice] = "Seu amiguinho foi cadastrado com sucesso."
       	redirect_to authenticated_root_path
       else
-      	flash[:alert] = "Pet has not been created."
+      	flash[:alert] = "Desculpe-nos, mas houve algum problema e seu amiguinho não foi cadastrado."
       	render "new"
       end
 	end
@@ -33,17 +33,17 @@ class PetsController < ApplicationController
 
 	def update
       if @pet.update(pet_params)
-      	flash[:notice] = "Pet has been updated."
+      	flash[:notice] = "Informações do seu amiguinho foi atualizada com sucesso."
       	redirect_to @pet
       else
-      	flash[:alert] = "Pet has not been updated."
+      	flash[:alert] = "Não conseguimos atualizar as informações do seu amiguinho."
       	render "edit"
       end
     end
 
     def destroy
       @pet.destroy
-      flash[:notice] = "Pet has been deleted."
+      flash[:notice] = "Você excluiu o perfil do seu Pet, esperamos que cadatra-se novamente, sentiremos saudade."
 
       redirect_to @pet
     end
