@@ -1,0 +1,211 @@
+.sign_in h2{
+	font-size: 18px;
+	font-weight: bold; 
+}
+
+.sign_in input{
+	padding: 0.5em 2em 0.5em 2em;
+}
+
+.btn-custom {
+    background-color: #FF6565;
+    border-color: #FDA8A8;
+    padding: 5px;
+    color: white; 
+}
+
+.text_bold{
+   font-weight: bold; 
+}
+
+#text_left{
+	text-align: left;
+}
+
+
+
+.sign_up h2{
+	font-size: 18px;
+	font-weight: bold; 
+}
+
+
+.btn:hover, .btn:focus, .btn.focus {
+    color: rgba(247,212,212,1);
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+/*
+  TEST
+ */
+
+
+ .wizard {
+    margin: 20px auto; 
+}
+
+    .wizard .nav-tabs {
+        position: relative;
+        margin: 40px auto;
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+
+    .wizard > div.wizard-inner {
+        position: relative;
+    }
+
+.connecting-line {
+    height: 17px;
+    background: #CDCDCD;
+    position: absolute;
+    width: 27%;
+    margin: 0 auto;
+    left: 0;
+    right: 135px;
+    top: 48%;
+    z-index: 1;
+}
+
+
+
+.connecting-line2 {
+    height: 17px;
+    background: #CDCDCD;
+    position: absolute;
+    width: 18%;
+    margin: 0 auto;
+    left: 131px;
+    right: 0;
+    top: 48%;
+    z-index: 1;
+}
+
+
+
+.wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    border: 0;
+    border-bottom-color: transparent;
+}
+
+span.round-tab {
+    width: 70px;
+    height: 70px;
+    line-height: 60px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #fff;
+    border: 4px solid #FDA8A8;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+}
+span.round-tab i{
+    color:#555555;
+}
+.wizard li.active span.round-tab {
+    background: #FF6565;
+    background-color: #FF6565;
+    border: 4px solid #FF6565;
+    
+}
+.wizard li.active span.round-tab i{
+    color: white;
+}
+
+span.round-tab:hover {
+    color: #FDA8A8;
+    border: 2px solid #FDA8A8;
+}
+
+.wizard .nav-tabs > li {
+    width: 33%;
+}
+
+.wizard li:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    transition: 0.1s ease-in-out;
+}
+
+.wizard li.active:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    margin: 0 auto;
+}
+
+.wizard .nav-tabs > li a {
+    width: 70px;
+    height: 70px;
+    margin: 20px auto;
+    border-radius: 100%;
+    padding: 0;
+}
+
+    .wizard .nav-tabs > li a:hover {
+        background: transparent;
+    }
+
+.wizard .tab-pane {
+    position: relative;
+    padding-top: 50px;
+}
+
+.wizard h3 {
+    margin-top: 0;
+}
+
+@media( max-width : 585px ) {
+
+    .wizard {
+        width: 90%;
+        height: auto !important;
+    }
+
+    span.round-tab {
+        font-size: 16px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard .nav-tabs > li a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard li.active:after {
+    	width: 80px;
+        height: 80px;
+        content: " ";
+        position: absolute;
+        left: 35%;
+    }
+}
+
+
+/* form pet*/
+.center-container{
+    margin-top: 20%;
+}
+
+
+
+/* form pet*/

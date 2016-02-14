@@ -1,0 +1,38 @@
+ <div class="center-container"></div>
+      <div class="wrap">
+      
+          <div id="tinderslide">
+              <ul>
+                  <%= render 'pet' %> 
+              </ul>
+          </div>
+          
+      </div>
+ 
+ 
+
+  <div class="actions">
+      <a href="#" class="dislike"><i class="fa fa-times"></i></a>
+      <a href="#" class="like"><i class="fa fa-heart"></i></a>
+  </div>
+
+
+ 
+
+<script type="text/javascript">
+$("#tinderslide > ul li").tsort({attr:"id"});
+
+$("#tinderslide").jTinder({
+    onDislike: function (item) {
+        alert('Dislike image ' + (item.index()+1));
+    },
+    onLike: function (item) {
+        alert('Like image ' + (item.index()+1));
+    },
+    animationRevertSpeed: 200,
+    animationSpeed: 400,
+    threshold: 1,
+    likeSelector: '.like',
+    dislikeSelector: '.dislike'
+});
+</script>
