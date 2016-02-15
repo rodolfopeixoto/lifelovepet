@@ -1,14 +1,10 @@
 <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
     <ul class="nav navmenu-nav"> 
-    	<li class="active"><%= link_to '<i class="fa fa-paw"></i> Pet'.html_safe, pets_path  %></li>
-    	<li><%= link_to '<i class="fa fa-users"></i> Matches'.html_safe, "#"  %></li>
-    	<li><a href="#"><i class="fa fa-paw"></i> Preferências</a></li>
+    	<li class="active"><%= link_to '<i class="fa fa-paw"></i> Buscar Amor'.html_safe, pets_path  %></li>
+    	<li><%= link_to '<i class="fa fa-users"></i> Pet'.html_safe, "#"  %></li>
+    	<li><a href="#"><i class="fa fa-paw"></i> Usuário</a></li>
     	<li><a href="#"><i class="fa fa-filter"></i> Filtro</a></li>
-    	<li><a href="#"><i class="fa fa-filter"></i> Configurações</a></li>
-    	<li><a href="#"><i class="fa fa-commenting"></i> Feedback</a></li>
-    	<li><a href="#"><i class="fa fa-life-ring"></i> Contato</a></li>
-    	<li><a href="#"><i class="fa fa-share"></i> Compartilhar</a></li>
-    	<li><a href="#"> <i class="fa fa-sign-out"></i> Sair</a></li>
+    	<li><a href="#"><i class="fa fa-life-ring"></i> 3Lovet</a></li> 
       <li><%= link_to '<i class="fa fa-sign-out"></i> Sair'.html_safe, destroy_user_session_path, method: :delete %></li>
     </ul>
 </nav>
@@ -24,3 +20,5 @@
    <%= image_tag "logo.png", alt: "Loveret Logo", :class => "img-responsive" %>
 </a>
 </div>
+
+ <div class="center-container"></div>

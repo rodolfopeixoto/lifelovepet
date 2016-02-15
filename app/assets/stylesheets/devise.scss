@@ -1,0 +1,16 @@
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+    width: 340px;    
+    position: fixed;
+    top: 20%; 
+    right: 42%;
+}
+
+.clickable {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}

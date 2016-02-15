@@ -19,5 +19,6 @@
 //= require tinysort
 //= require jquery.tinysort
 //= require jquery.easing.min
-//= require jasny-bootstrap.min
+//= require jasny-bootstrap.min 
+//= require alert
 //= require_tree .
