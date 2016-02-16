@@ -1,0 +1,10 @@
+         <% unless notice.nil?  %>
+              <p class="text-center alert alert-success" role="alert">
+           <span class="pull-right clickable" data-effect="slideUp"><i class="fa fa-times"></i></span>
+              <%= notice %>
+              </p>
+          <% end %>
+          <% unless alert.nil? %>
+              <p class="text-center alert" role="alert"><%= alert %></p>
+           <span class="pull-right clickable" data-effect="slideUp"><i class="fa fa-times"></i></span>
+          <% end %>
