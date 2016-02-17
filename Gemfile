@@ -64,3 +64,4 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem "autoprefixer-rails"
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'devise'
+gem 'google-analytics-rails', '1.0.0'
