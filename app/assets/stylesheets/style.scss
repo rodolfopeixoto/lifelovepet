@@ -49,25 +49,8 @@ body {
 
 // HOME PAGE
 
-.home-information {
-	height: 400px;
-	margin: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	text-align: center;
-}
 
-.bg-dark {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background: rgba(0,0,0,0.3);
-}
+
 
 .slogan {
 	color: white;
@@ -78,27 +61,8 @@ body {
 	padding: 10px 0 10px;
 	text-align: center;
 }
-
-.home-information strong{
-	color: white;
-}
-
-
-
-
-// TINDER BACKGROUND LANDING
-
-body {
-	font-family: 'Varela Round', sans-serif;
-}
-
-p, ol, ul, td {
-	font-family: 'Varela Round', sans-serif;
-}
-
-
-
-
+ 
+ 
 
 // TINDER PLUGIN
 
@@ -106,7 +70,8 @@ p, ol, ul, td {
 	text-align: left;
 	font-size: 13px;
 	padding-top: 14px;
-	padding-left: 20px;
+	padding-left: 20px; 
+    color: black;
 }
 
 .user-name a {
@@ -121,11 +86,16 @@ p, ol, ul, td {
 }
 
 .user-location {
-	text-align: right;
+	text-align: center;
 	font-size: 13px;
 	padding-top: 14px;
 	padding-right: 20px;
 	color: gray;
+}
+
+.user-location a:hover{
+	text-decoration: none;
+	color: #3E3E3E;
 }
 
 .user-size {
@@ -162,31 +132,31 @@ p, ol, ul, td {
 }
 
 .actions a i {
-	font-size: 40px;
+	font-size: 25px;
 }
 
 .actions a {
 	background-color: white;
 	background-image: none;
 	margin: 15px;
-	width: 120px;
-	height: 120px;
+    width: 60px;
+    height: 60px;
 	border-radius: 100%;
 	border: 10px solid #e8e8e8;
 	box-shadow: none;
 }
 
 .actions .dislike i {
-	font-size: 50px;
+	font-size: 25px;
 	color: #fc6d5c;  
 }
 
 .actions .dislike {
-	line-height: 93px;
+	line-height: 50px;
 }
 
 .actions .like {
-	line-height: 93px;
+	line-height: 50px;
 }
 
 .actions .like i {
@@ -286,6 +256,12 @@ p, ol, ul, td {
 }
 
 
-.row{
-    padding-top: 27%;
+.margin-div{
+    padding-top: 24%;
+    padding-bottom: 3%;
+}
+
+a:hover, a:focus {
+    color: #23527c;
+    text-decoration: none;
 }

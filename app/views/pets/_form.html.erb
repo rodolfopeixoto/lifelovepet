@@ -1,4 +1,4 @@
-<div class="center-container">
+ 
   <h2>Pet</h2>
 <%= form_for(@pet) do |f| %>
   <div class="form-group">
@@ -9,28 +9,28 @@
   <div class="form-group">
    <%= f.label :size %> 
    <fieldset>
-     <%= f.radio_button :size, "small" %>
-     <%= f.label :size_small, "Small"  %>
-     <%= f.radio_button :size, "medium" %>
-     <%= f.label :size_medium, "Medium" %>
-     <%= f.radio_button :size, "big" %>
-     <%= f.label :size_big, "Big" %>
+     <%= f.radio_button :size, "pequeno" %>
+     <%= f.label :size_small, "Pequeno"  %>
+     <%= f.radio_button :size, "Medio" %>
+     <%= f.label :size_medium, "Médio" %>
+     <%= f.radio_button :size, "grande" %>
+     <%= f.label :size_big, "Grande" %>
     </fieldset>
   </div>
 
   <div class="form-group">
-    <%= f.label :dateOfBirth %>
+    <%= f.label :dateOfBirth, "Data de Nascimento" %>
     <%= f.date_field :dateOfBirth, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :age %>
+    <%= f.label :age, "Idade" %>
     <%= f.number_field :age, :step => 1, :min => 1, :class => "form-control"  %>
   </div>
 
   
    <div class="form-group">
-   <%= f.label :animal %> 
+   <%= f.label :animal, "Animal" %> 
     <fieldset>
       <%= f.label :animal_cat, "Cat" %>
       <%= f.radio_button :animal, "cat"  %>
@@ -52,5 +52,3 @@
   <%= f.submit :class => "btn btn-custom form-control text-center" %>
 
 <% end %>
-
- </div>

@@ -6,7 +6,8 @@ html, body {
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 /* Wrapper with padding */
@@ -168,8 +169,8 @@ body {
     background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
     color: #a7a7a7;
     margin: 36px;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     position: relative;
     text-align: center;
     line-height: 144px;

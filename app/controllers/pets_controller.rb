@@ -3,7 +3,7 @@ class PetsController < ApplicationController
     before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@pets = Pet.all
+		@pets = Pet.includes(:user).all
 	end
 
 	def profile
@@ -51,7 +51,7 @@ class PetsController < ApplicationController
 	private
 
 	def pet_params
-      params.require(:pet).permit(:name,:size,:dateOfBirth,:age,:animal,:breed,:bio)
+      params.require(:pet).permit(:name,:size, :dateOfBirth, :age, :animal, :breed, :bio)
 	end
 
 	def set_pet

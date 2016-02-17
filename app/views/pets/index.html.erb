@@ -1,14 +1,10 @@
- <div class="container container-constum">
+ <div class="container-fluid">
    <div class="row">
     <div class="wrap">
       
       <div id="tinderslide">
         <ul>
-          <%= render 'pet' %> 
-          <%= render 'pet' %> 
-          <%= render 'pet' %> 
-          <%= render 'pet' %> 
-          <%= render 'pet' %> 
+          <%= render 'pet' %>  
         </ul>
       </div>
 
@@ -19,12 +15,27 @@
      
    </div>
    
-   
 
  </div>
 
 </div>
 
+<!--EXCLUIR --> 
+<div class="margin-div"></div>
+
+<div class="container-fluid">
+    <% @pets.each do |pet| %>
+
+     <b>Nome:</b> <%= pet.name %>
+     <b>Nome:</b> <%= pet.user.firstName %>
+     <b>Nome:</b> <%= pet.name %>
+     <b>Nome:</b> <%= pet.name %>
+ 
+ 
+   <% end %>
+   
+
+</div>
 
 
 
