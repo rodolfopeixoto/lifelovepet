@@ -18,14 +18,14 @@
     </fieldset>
   </div>
 
-  <div class="form-group">
-    <%= f.label :dateOfBirth, "Data de Nascimento" %>
-    <%= f.date_field :dateOfBirth, :class => "form-control" %>
-  </div>
 
+  <label>Idade</label>  
   <div class="form-group">
-    <%= f.label :age, "Idade" %>
-    <%= f.number_field :age, :step => 1, :min => 1, :class => "form-control"  %>
+    <%= f.label :age, "Anos" %>
+    <%= f.number_field :age, in: 1...15 %>
+
+    <%= f.label :ageMonth, "Meses" %>
+    <%= f.number_field :ageMonth, in: 1...12  %>
   </div>
 
   

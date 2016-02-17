@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217153228) do
+ActiveRecord::Schema.define(version: 20160217215338) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.string   "size"
-    t.date     "dateOfBirth"
     t.integer  "age"
     t.string   "breed"
     t.datetime "created_at"
@@ -24,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160217153228) do
     t.string   "animal"
     t.text     "bio"
     t.integer  "user_id"
+    t.integer  "ageMonth"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20160217153228) do
     t.string   "firstName"
     t.string   "lastName"
     t.date     "dateOfBirth"
-    t.integer  "age"
     t.string   "gender"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

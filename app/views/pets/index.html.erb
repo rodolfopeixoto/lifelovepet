@@ -23,19 +23,7 @@
 <!--EXCLUIR --> 
 <div class="margin-div"></div>
 
-<div class="container-fluid">
-    <% @pets.each do |pet| %>
-
-     <b>Nome:</b> <%= pet.name %>
-     <b>Nome:</b> <%= pet.user.firstName %>
-     <b>Nome:</b> <%= pet.name %>
-     <b>Nome:</b> <%= pet.name %>
- 
- 
-   <% end %>
-   
-
-</div>
+<%= link_to "Cadastrar PET (Link Temporário)", new_pet_path %>
 
 
 
