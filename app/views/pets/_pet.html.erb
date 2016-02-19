@@ -5,21 +5,31 @@
 	    <div class="like"></div> 
 	    <div class="dislike"></div>    
 	      <div class="img"><%= image_tag "cat.jpg", height: '370', width: '370', :class => "img-responsive" %></div>
-	       
- 
-	      <div class="user-name pull-left"><b><i class="fa fa-paw"></i> <%= pet.name %></b></div>
- 
- 
-	      <div class="user-location text-right"><i class="fa fa-map-marker"></i>   <%= pet.user.city  %> <%= pet.user.state %> </div>
- 
+	        
+	      <div class="row">
 
- 
-	      <div class="user-name pull-left"><b><i class="fa fa-paw"></i> Persan</b></div>
- 
- 
-	      <div class="user-size"><i class="fa fa-user"></i> <%= pet.user.firstName %>  </div>
+             <div class="col-xs-6">
+               <div class="user-pet"><i class="fa fa-paw"></i> <%= pet.name %></div>
+             </div>
+
+             <div class="col-xs-6">
+                  <div class="user-location"><i class="fa fa-map-marker"></i>   <%= pet.user.city  %> <%= pet.user.state %> </div>
+             </div>
+          </div>
+
+
+          <div class="row">
+             <div class="col-xs-6">
+                  <div class="user-breed "><i class="fa fa-paw"></i> <%= pet.breed %></div>
+             </div>
+             <div class="col-xs-6">
+                 <div class="user-name"><i class="fa fa-user"></i> <%= pet.user.firstName %>  </div>
+             </div>
+         </div>
  
 
 	</li>
 
 <% end %>
+
+

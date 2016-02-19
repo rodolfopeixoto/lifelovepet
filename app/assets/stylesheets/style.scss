@@ -66,12 +66,14 @@ body {
 
 // TINDER PLUGIN
 
-.user-name {
-	text-align: left;
-	font-size: 13px;
-	padding-top: 14px;
-	padding-left: 20px; 
-    color: black;
+.user-name { 
+   font-size: 13px; 
+   text-align: left; 
+    color: #4A4A4A;
+}
+
+.user-name i{
+	color:#ff6565;
 }
 
 .user-name a {
@@ -85,12 +87,44 @@ body {
 	transition: all 0.3s ease-out;
 }
 
-.user-location {
-	text-align: center;
+.user-breed{
 	font-size: 13px;
-	padding-top: 14px;
-	padding-right: 20px;
-	color: gray;
+	text-align: left;
+	color: #4A4A4A;
+	font-weight: none;
+}
+.user-breed i{
+	color:#ff6565;
+}
+
+.user-pet { 
+   font-size: 13px; 
+   text-align: left; 
+    color: #4A4A4A;
+}
+.user-pet i{  
+	color:#ff6565;
+}
+
+.user-pet a {
+	color: #222222 !important;
+	transition: all 0.3s ease-out;
+}
+
+.user-pet a:hover {
+	text-decoration: none;
+	color: $brand-primary !important;
+	transition: all 0.3s ease-out;
+}
+
+.user-location { 
+ font-size: 12px;
+ text-align: left;
+ color: #4A4A4A;
+}
+
+.user-location i{
+	color:#ff6565;
 }
 
 .user-location a:hover{
@@ -98,21 +132,8 @@ body {
 	color: #3E3E3E;
 }
 
-.user-size {
-	text-align: center;
-	font-size: 13px;
-	padding-top: 14px;
-	padding-right: 20px;
-	color: gray;
-}
-
-.user-age {
-	text-align: left;
-	font-size: 13px;
-	padding-top: 14px;
-	padding-right: 20px;
-	color: gray;
-}
+ 
+ 
 
 .wrap {
 	height: 400px;
