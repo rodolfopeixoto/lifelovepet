@@ -1,8 +1,10 @@
 module ApplicationHelper
 	def firstNameCity(city)
-      unless city.empty?
-      	city = city.split(" ")
-        city[0]
-      end
+       if city.size <= 9
+       	city
+       else
+       	city = city.split(" ")
+       	city[0]
+       end
 	end
 end
