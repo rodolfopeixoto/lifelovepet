@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     end
 end
 
-  resources :pets
+    resources :pets
+  
 
   get 'pets/profile' => "pets#profile"
   # The priority is based upon order of creation: first created -> highest priority.

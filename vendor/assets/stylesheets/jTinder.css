@@ -5,13 +5,12 @@ html, body {
 }
 
 body {
-    overflow-x: hidden;
     overflow-y: visible;
 }
 
 /* Wrapper with padding */
 .wrap  {
-    height: 300px;
+    height: 275px;
     padding: 5%;
 }
 

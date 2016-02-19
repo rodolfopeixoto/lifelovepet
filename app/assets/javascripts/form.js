@@ -1,3 +1,9 @@
+
+
+
+var ready;
+ready = function() {
+
 $(document).ready(function () {
 
    var count = 0;
@@ -48,3 +54,9 @@ function prevTab(elem, number) {
       if(number == 2)
         $(".connecting-line2").css("background-color","#A5A5A5");
 }
+
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

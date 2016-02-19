@@ -1,3 +1,59 @@
+ <div class="petProfile">
 
-<h2><%= @pet.name %></h2>
-<%= link_to "Cadastrar PET (Link Temporário)", new_pet_path %>
+<div class="row">
+  <div class="col-xs-6">
+   <label>Nome</label>
+   <p><%= @pet.name %></p>
+  </div>
+  <div class="col-xs-6"> 
+
+   <label>Raça</label>
+   <p><%= @pet.breed %></p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+  
+   <label>Tamanho</label>
+   <p><%= @pet.size %></p>
+
+  </div>
+  <div class="col-xs-6">
+  
+   <label>Idade</label>
+   <p><%= @pet.age %> ano(s) e <%= @pet.ageMonth %> mes(es)</p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+  
+   <label>Animal</label>
+   <p><%= @pet.animal == "cat" ? "Gato" : "Cachorro" %></p>
+
+  </div>
+  <div class="col-xs-6">
+ 
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-6">
+  
+   <label>Descrição</label>
+   <p class="text-justify"><%= @pet.bio %></p>
+
+  </div>
+  <div class="col-xs-6">
+  	 
+  	 <%= link_to "Editar Informações", edit_pet_path %>
+
+  </div>
+</div>
+
+ </div>
+

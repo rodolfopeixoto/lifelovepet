@@ -1,10 +1,13 @@
 <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
     <ul class="nav navmenu-nav"> 
-    	<li class="active"><%= link_to '<i class="fa fa-paw"></i> Buscar Amor'.html_safe, pets_path  %></li>
-    	<li><%= link_to '<i class="fa fa-users"></i> Pet'.html_safe, "#"  %></li>
+    	<li class="active"><%= link_to '<i class="fa fa-paw"></i> Pets2'.html_safe, pets_path  %></li>
+    	<li><%= link_to '<i class="fa fa-users"></i> Perfil Usuário'.html_safe, edit_user_registration_path %></li>
+      <li><%= link_to '<i class="fa fa-paw"></i> Perfil Pet'.html_safe, current_user.pet.nil? ? new_pet_path : pet_path(current_user.pet)  %></li>
+      <!--
     	<li><a href="#"><i class="fa fa-paw"></i> Usuário</a></li>
     	<li><a href="#"><i class="fa fa-filter"></i> Filtro</a></li>
-    	<li><a href="#"><i class="fa fa-life-ring"></i> 3Lovet</a></li> 
+    	<li><a href="#"><i class="fa fa-life-ring"></i> 3Lovet</a></li>
+      --> 
       <li><%= link_to '<i class="fa fa-sign-out"></i> Sair'.html_safe, destroy_user_session_path, method: :delete %></li>
     </ul>
 </nav>

@@ -1,5 +1,5 @@
 <div class="center-container">
-  <h2 class="text-center">Usuário - Atualizar Informações</h2>
+  <h3 class="text-center">Usuário - Atualizar Informações</h3>
 
 
 <div class="row" style="border-bottom: 1px solid #D8ECCF;">
@@ -64,12 +64,7 @@
      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
      <% end %>
-
-      <div class="form-group">
-         <label>Idade</label>
-        <%=  f.number_field :age, :step => 1, :min => 10 , :class => "form-control", :value => :age %>
-      </div>
-
+     
       <div class="form-group">
          <label>Data de Nascimento</label>
         <%= f.date_field :dateOfBirth, :class => "form-control" %>

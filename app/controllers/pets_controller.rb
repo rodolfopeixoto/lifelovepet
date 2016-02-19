@@ -14,15 +14,20 @@ class PetsController < ApplicationController
 	end
 
 	def create
+    if current_user.pet.nil?
       @pet = current_user.build_pet(pet_params)
 
       if @pet.save
-      	flash[:notice] = "Seu amiguinho foi cadastrado com sucesso."
+      	flash[:notice] = "Seu Pet foi cadastrado com sucesso."
       	redirect_to authenticated_root_path
       else
-      	flash[:alert] = "Desculpe-nos, mas houve algum problema e seu amiguinho não foi cadastrado."
+      	flash[:alert] = "Desculpe-nos, mas houve algum problema e seu pet não foi cadastrado."
       	render "new"
       end
+    else
+      flash[:alert] = "Você só pode cadastrar 1 Pet."
+      redirect_to pets_path
+    end
 	end
 
 	def show

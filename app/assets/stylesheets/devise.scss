@@ -3,8 +3,8 @@
     border-color: #d6e9c6;
     color: #3c763d;
     width: 340px;    
-    position: fixed;
-    top: 20%; 
+    position: absolute;
+    top: 10%; 
     right: 42%;
 }
 
@@ -13,4 +13,14 @@
     padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.alert {
+     background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+    width: 340px;    
+    position: absolute;
+    top: 10%; 
+    right: 42%;
 }
