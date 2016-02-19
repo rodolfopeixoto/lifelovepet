@@ -38,10 +38,10 @@ class PetsController < ApplicationController
 
 	def update
       if @pet.update(pet_params)
-      	flash[:notice] = "Informações do seu amiguinho foi atualizada com sucesso."
+      	flash[:notice] = "As informações do seu Pet foram atualizadas com sucesso."
       	redirect_to @pet
       else
-      	flash[:alert] = "Não conseguimos atualizar as informações do seu amiguinho."
+      	flash[:alert] = "Não conseguimos atualizar as informações do seu Pet."
       	render "edit"
       end
     end
