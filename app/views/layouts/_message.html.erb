@@ -1,31 +1,16 @@
          <% unless notice.nil?  %>  
             <script>
-            var ready;
-            ready = function() {
-
  
-                swal("Notificação", "<%= notice %>","sucess");
+                swal("Notificação", "<%= notice %>","success");
 
-             };
-
-             $(document).ready(ready);
-             $(document).on('page:load', ready);
-              
             </script>
           <% end %>
           <% unless alert.nil? %>
              
             <script> 
-            var ready;
-            ready = function() {
-
-  
+            
               sweetAlert("Oops...","<%= alert %>", "error");
 
-             };
-
-             $(document).ready(ready);
-             $(document).on('page:load', ready);
             </script>
            
           <% end %>

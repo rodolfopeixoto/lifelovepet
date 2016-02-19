@@ -1,10 +1,20 @@
+var ready = function () {
+
+function nextTab(elem, number) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+    $(".connecting-line").css("background-color","#FF6565");
+      if(number == 2)
+        $(".connecting-line2").css("background-color","#FF6565");
+ 
+}
+function prevTab(elem, number) {
+    $(elem).prev().find('a[data-toggle="tab"]').click();
+    $(".connecting-line").css("background-color","#A5A5A5");
+      if(number == 2)
+        $(".connecting-line2").css("background-color","#A5A5A5");
+}
 
 
-
-var ready;
-ready = function() {
-
-$(document).ready(function () {
 
    var count = 0;
 
@@ -39,23 +49,6 @@ $(document).ready(function () {
          if(count < 2) 
           prevTab($active, 2);
     });
-});
-
-function nextTab(elem, number) {
-    $(elem).next().find('a[data-toggle="tab"]').click();
-    $(".connecting-line").css("background-color","#FF6565");
-      if(number == 2)
-        $(".connecting-line2").css("background-color","#FF6565");
- 
-}
-function prevTab(elem, number) {
-    $(elem).prev().find('a[data-toggle="tab"]').click();
-    $(".connecting-line").css("background-color","#A5A5A5");
-      if(number == 2)
-        $(".connecting-line2").css("background-color","#A5A5A5");
-}
-
-
 };
 
 $(document).ready(ready);
