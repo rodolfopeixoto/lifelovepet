@@ -6,21 +6,19 @@
 	    <div class="dislike"></div>    
 	      <div class="img"><%= image_tag "cat.jpg", height: '370', width: '370', :class => "img-responsive" %></div>
 	       
-	       <%= link_to pet do %>
+ 
 	      <div class="user-name pull-left"><b><i class="fa fa-paw"></i> <%= pet.name %></b></div>
-	      <% end %>
+ 
+ 
+	      <div class="user-location text-right"><i class="fa fa-map-marker"></i>   <%= pet.user.city  %> <%= pet.user.state %> </div>
+ 
 
-	      <%= link_to pet do %>
-	      <div class="user-location text-right"><i class="fa fa-map-marker"></i> <%= firstNameCity(pet.user.city) %> <%= pet.user.state %> </div>
-	       <% end %>
-
-	       <%= link_to pet do  %>
+ 
 	      <div class="user-name pull-left"><b><i class="fa fa-paw"></i> Persan</b></div>
-	      <% end %>
-
-	      <%= link_to pet do  %>
-	      <div class="user-size"><i class="fa fa-user"></i> <%= pet.user.firstName %></div>
-	    <% end %>
+ 
+ 
+	      <div class="user-size"><i class="fa fa-user"></i> <%= pet.user.firstName %>  </div>
+ 
 
 	</li>
 

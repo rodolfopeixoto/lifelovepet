@@ -3,7 +3,7 @@ class PetsController < ApplicationController
     before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@pets = Pet.includes(:user).all
+		@pets = Pet.all
 	end
 
 	def profile
@@ -14,7 +14,7 @@ class PetsController < ApplicationController
 	end
 
 	def create
-      @pet = Pet.new(pet_params)
+      @pet = current_user.build_pet(pet_params)
 
       if @pet.save
       	flash[:notice] = "Seu amiguinho foi cadastrado com sucesso."
@@ -50,9 +50,9 @@ class PetsController < ApplicationController
 
 	private
 
-	def pet_params
-      params.require(:pet).permit(:name,:size, :dateOfBirth, :age, :animal, :breed, :bio)
-	end
+  def pet_params
+      params.require(:pet).permit(:name,:size, :age,:ageMonth, :animal, :breed, :user_id, :bio)
+  end
 
 	def set_pet
       @pet = Pet.find(params[:id])  
