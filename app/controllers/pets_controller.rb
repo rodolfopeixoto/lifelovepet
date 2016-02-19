@@ -48,7 +48,7 @@ class PetsController < ApplicationController
 
     def destroy
       @pet.destroy
-      flash[:notice] = "Você excluiu o perfil do seu Pet, esperamos que cadatra-se novamente, sentiremos saudade."
+      flash[:notice] = "Perfil do seu pet foi excluído com sucesso"
 
       redirect_to @pet
     end
