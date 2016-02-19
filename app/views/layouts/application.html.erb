@@ -22,9 +22,15 @@
 
               <%= yield %>  
 
-       <footer>Develop by <a href="www.rodolfopeixoto.com.br" target="_blank">Rodolfo Peixoto</a> - <b>Contato:</b> <a href="www.rodolfopeixoto.com.br" target="_blank">contato@3lovet.com</a> </footer>
+       </div>
+    <% unless current_user %>
+      
+     
+       <div class="container">
+       <%= render "layouts/footer" %> 
        </div>
 
+   <% end %>
 
 </body>
 </html>
