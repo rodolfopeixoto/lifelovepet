@@ -20,6 +20,8 @@ end
   post   'crete_friendships'   => 'friendships#create'
   delete 'destroy_friendships' => 'friendships#destroy' 
 
+  get 'matches/get_email' => 'pets#get_email'
+
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

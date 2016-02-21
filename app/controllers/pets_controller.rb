@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_pet, only: [:show, :edit, :update, :destroy]
+    before_action :set_pet, only: [:show, :edit, :update, :destroy, :get_email]
 
 	def index
 		@pets = Pet.all
@@ -66,6 +66,12 @@ class PetsController < ApplicationController
 
     def matches
       @matches = current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
+    end
+
+    def get_email
+      respond_to do |format|
+        format.js
+      end
     end
 
 	private
