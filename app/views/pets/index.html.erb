@@ -15,14 +15,15 @@
      
    </div>
    
-
  </div>
 
 </div>
 
  <script type="text/javascript">
 
- $('.actions .like, .actions .dislike').click(function(e){
+
+$('.actions .like, .actions .dislike').click(function(e){
+
   e.preventDefault();
   $("#tinderslide").jTinder($(this).attr('class'));
 });
@@ -35,7 +36,8 @@
       //alert('Dislike image ' + (item.index()+1));
     },
     onLike: function (item) {
-      //alert('Like image ' + (item.index()+1));
+      var myId = $("#tinderslide > ul li").last().attr("id");
+      $("#pet_" + myId)[0].click();
     },
     animationRevertSpeed: 200,
     animationSpeed: 400,

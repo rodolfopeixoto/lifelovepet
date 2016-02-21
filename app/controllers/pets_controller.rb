@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_pet, only: [:show, :edit, :update, :destroy]
+    before_action :set_pet, only: [:show, :edit, :update, :destroy, :get_email]
 
 	def index
  
@@ -14,6 +14,9 @@ class PetsController < ApplicationController
       format.html
       format.js
     end
+      #@pets = Pet.animal(current_user.pet.animal).not_me(current_user.pet).where('id < ?', params[:id]).limit(10) - current_user.pet.matches(current_user.pet)
+	    @pets = Pet.all.where('animal = ?', current_user.pet.animal).where.not('id = ?', current_user.pet.id)
+  end
 
 	end
 
@@ -70,6 +73,16 @@ class PetsController < ApplicationController
       else
         flash[:alert] = "Não conseguimos atualizar as informações do seu Pet."
         render "edit"
+      end
+    end
+
+    def matches
+      @matches = current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
+    end
+
+    def get_email
+      respond_to do |format|
+        format.js
       end
     end
 

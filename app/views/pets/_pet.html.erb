@@ -1,5 +1,4 @@
 <% @pets.each do |pet| %>
-   
 
 	<li id="<%= pet.id %>"> 
 	    <div class="like"></div> 
@@ -26,7 +25,7 @@
                  <div class="user-name"><i class="fa fa-user"></i> <%= pet.user.firstName %>  </div>
              </div>
          </div>
- 
+         <%= link_to "", create_friendships_path(friend_id: pet.id), id: "pet_#{pet.id}", method: :post, :remote => true %>
 
 	</li>
 
