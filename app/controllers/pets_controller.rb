@@ -3,11 +3,20 @@ class PetsController < ApplicationController
     before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@pets = Pet.all
+ 
+        if params[:id]
+          @pets = Pet.where('id < ?', params[:id]).limit(2)
+        else
+          @pets = Pet.all.limit(2)
+        end
+ 
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
 	end
 
-	def profile
-	end
 
 	def new
       @pet = Pet.new

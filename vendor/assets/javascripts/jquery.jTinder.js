@@ -75,7 +75,7 @@ showPane: function (index) {
 					            // make a get request to the server
 					            type: "GET",
 					            // get the url from the href attribute of our link
-					            url: "/users",
+					            url: "/pets",
 					            // send the last id to our rails app
 					            data: {
 					                id: last_id
@@ -96,7 +96,7 @@ showPane: function (index) {
 					            // make a get request to the server
 					            type: "GET",
 					            // get the url from the href attribute of our link
-					            url: "/users",
+					            url: "/pets",
 					            // the response will be a script
 					            dataType: "script",
 					 
