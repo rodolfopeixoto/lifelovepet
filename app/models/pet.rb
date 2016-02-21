@@ -20,4 +20,23 @@ class Pet < ActiveRecord::Base
  
 
 	  default_scope { order('id DESC') }
+
+
+  def request_match(pet_2)
+    self.friendships.create(friend: user_2)
+  end
+
+  def accept_friendship
+    self.update_attributes(state: "active", friended_at: Time.now)
+  end
+
+  def remove_match(pet2)
+    inverse_friendship = inverse_friendships.where(pet_id: pet2).first
+
+    if inverse_friendship
+      self.inverse_friendships.where(pet_id: pet2).first.destroy
+    else
+      self.friendships.where(friend_id: pet2).first.destroy
+    end
+  end
 end
