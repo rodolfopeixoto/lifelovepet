@@ -22,6 +22,11 @@ class Pet < ActiveRecord::Base
 	  default_scope { order('id DESC') }
 
 
+    def matches(current_user)
+      friendships.where(state: "peding").map(&friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
+    end
+
+
   def request_match(pet_2)
     self.friendships.create(friend: user_2)
   end
@@ -40,3 +45,18 @@ class Pet < ActiveRecord::Base
     end
   end
 end
+
+    def self.animal(pet)
+      case pet.animal
+        when "cat"
+          where('animal = ?', 'cat')
+        when "dog"
+          where('animal = ?', 'dog')
+        else
+          all
+      end
+    end
+
+    def self.not_me(current_user)
+      where.not(id: current_user.pet.id)
+    end

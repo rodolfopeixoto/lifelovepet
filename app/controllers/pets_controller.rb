@@ -3,8 +3,9 @@ class PetsController < ApplicationController
     before_action :set_pet, only: [:show, :edit, :update, :destroy, :get_email]
 
 	def index
-		@pets = Pet.all
-	end
+      #@pets = Pet.animal(current_user.pet.animal).not_me(current_user.pet).where('id < ?', params[:id]).limit(10) - current_user.pet.matches(current_user.pet)
+	    @pets = Pet.all.where('animal = ?', current_user.pet.animal).where.not('id = ?', current_user.pet.id)
+  end
 
 	def profile
 	end

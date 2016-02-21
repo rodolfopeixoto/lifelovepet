@@ -17,7 +17,7 @@ end
       end
     end
   
-  post   'crete_friendships'   => 'friendships#create'
+  post   'create_friendships'   => 'friendships#create'
   delete 'destroy_friendships' => 'friendships#destroy' 
 
   get 'matches/get_email' => 'pets#get_email'
