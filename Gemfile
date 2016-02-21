@@ -67,5 +67,3 @@ gem 'devise'
 gem 'google-analytics-rails', '1.0.0' 
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
-gem 'dalli'
-gem 'memcachier'
