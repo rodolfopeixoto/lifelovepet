@@ -2,11 +2,27 @@
 
 <div class="row">
   <div class="col-xs-6">
-   <label>Nome</label>
-   <p><%= @pet.name %></p>
+
+<%= image_tag @pet.picture.url(:thumb), :class => "img-circle" %>
   </div>
   <div class="col-xs-6"> 
 
+
+       <h3><%= @pet.name %></h3>
+
+
+  </div>
+</div>
+ 
+
+<div class="row">
+  <div class="col-xs-6">
+  <br>
+      <label>Animal</label>
+   <p><%= @pet.animal == "cat" ? "Gato" : "Cachorro" %></p>
+  </div>
+  <div class="col-xs-6"> 
+  <br>
    <label>Raça</label>
    <p><%= @pet.breed %></p>
 

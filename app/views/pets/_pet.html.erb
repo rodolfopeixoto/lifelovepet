@@ -4,7 +4,7 @@
 	<li id="<%= pet.id %>"> 
 	    <div class="like"></div> 
 	    <div class="dislike"></div>    
-	      <div class="img"><%= image_tag "cat.jpg", height: '370', width: '370', :class => "img-responsive" %></div>
+	      <div class="img"><%= image_tag pet.picture.url(:medium), :class => "img-responsive" %></div>
 	        
 	      <div class="row">
 
