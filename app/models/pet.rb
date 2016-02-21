@@ -5,7 +5,7 @@ class Pet < ActiveRecord::Base
       has_attached_file :picture,
                         :storage => :s3,
                         :styles => { :medium => "324x204!", :thumb => "100x100!" },
-                        :default_url => "/assets/:style/missing.jpg",
+                        :default_url => "/images/:style/missing.jpg",
                         :bucket => "3lovet",
                         :s3_credentials => {
                         :access_key_id => "AKIAJEMJ4MAVIKZFOCUQ",
