@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
 	 before_action :authenticate_user!
+   before_action :set_friend
 
 	 def create
        @inverse_friendship = current_user.pet.inverse_friendships.where(pet_id: @friend.id)

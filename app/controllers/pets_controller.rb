@@ -3,21 +3,9 @@ class PetsController < ApplicationController
     before_action :set_pet, only: [:show, :edit, :update, :destroy, :get_email]
 
 	def index
- 
-        if params[:id]
-          @pets = Pet.where('id < ?', params[:id]).limit(2)
-        else
-          @pets = Pet.all.limit(2)
-        end
- 
-    respond_to do |format|
-      format.html
-      format.js
-    end
-      #@pets = Pet.animal(current_user.pet.animal).not_me(current_user.pet).where('id < ?', params[:id]).limit(10) - current_user.pet.matches(current_user.pet)
-	    @pets = Pet.all.where('animal = ?', current_user.pet.animal).where.not('id = ?', current_user.pet.id)
-  end
 
+      #@pets = Pet.animal(current_user.pet.animal).not_me(current_user.pet).where('id < ?', params[:id]).limit(10) - current_user.pet.matches(current_user.pet)
+	    @pets = Pet.all.where('animal = ?', current_user.pet.animal).where.not('id = ?', current_user.pet.id).limit(2)
 	end
 
 
@@ -40,6 +28,7 @@ class PetsController < ApplicationController
       flash[:alert] = "Você só pode cadastrar 1 Pet."
       redirect_to pets_path
     end
+
 	end
 
 	def show
@@ -57,6 +46,7 @@ class PetsController < ApplicationController
       else 
         self.update_pet
       end
+
     end
 
     def destroy

@@ -149,11 +149,11 @@ body {
 }
 
 .actions a.dislike i {
-    background: url("../img/dislike_button.png") no-repeat scroll center center;
+    background: url-image("assets/dislike_button.png") no-repeat scroll center center;
 }
 
 .actions a.like i {
-    background: url("../img/like_button.png") no-repeat scroll center center;
+    background: url-image("assets/like_button.png") no-repeat scroll center center;
 }
 
 .actions a {
