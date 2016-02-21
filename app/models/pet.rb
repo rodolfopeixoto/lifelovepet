@@ -10,7 +10,7 @@ class Pet < ActiveRecord::Base
                         :s3_credentials => {
                         :access_key_id => "AKIAJEMJ4MAVIKZFOCUQ",
                         :secret_access_key => "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"
-                          }
+                          } 
                         
       
   # Validate the attached image is image/jpg, image/png, etc

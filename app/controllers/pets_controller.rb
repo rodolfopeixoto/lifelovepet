@@ -37,12 +37,13 @@ class PetsController < ApplicationController
 	end
 
 	def update
-      if @pet.update(pet_params)
-      	flash[:notice] = "As informações do seu Pet foram atualizadas com sucesso."
-      	redirect_to @pet
-      else
-      	flash[:alert] = "Não conseguimos atualizar as informações do seu Pet."
-      	render "edit"
+     if @pet.picture?
+        
+        @pet.picture.destroy
+        self.update_pet
+       
+      else 
+        self.update_pet
       end
     end
 
@@ -51,6 +52,16 @@ class PetsController < ApplicationController
       flash[:notice] = "Perfil do seu pet foi excluído com sucesso"
 
       redirect_to @pet
+    end
+
+    def update_pet
+      if @pet.update(pet_params)
+        flash[:notice] = "As informações do seu Pet foram atualizadas com sucesso."
+        redirect_to @pet
+      else
+        flash[:alert] = "Não conseguimos atualizar as informações do seu Pet."
+        render "edit"
+      end
     end
 
 	private
