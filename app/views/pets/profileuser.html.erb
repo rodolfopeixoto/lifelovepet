@@ -1,0 +1,58 @@
+ <div class="petProfile">
+
+<div class="row">
+  <div class="col-xs-6">
+
+<%= image_tag @pet.picture.url(:thumb), :class => "img-circle" %>
+  </div>
+  <div class="col-xs-6"> 
+
+
+       <h3><%= @pet.user.firstName %></h3>
+
+
+  </div>
+</div>
+ 
+
+<div class="row">
+  <div class="col-xs-6">
+  <br>
+      <label>Idade</label>
+   <p><%= @pet.user.dateOfBirth == "cat" ? "Gato" : "Cachorro" %></p>
+  </div>
+  <div class="col-xs-6"> 
+  <br>
+   <label>Cidade</label>
+   <p><%= @pet.user.city %></p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+  
+   <label>Estado</label>
+   <p><%= @pet.user.state %></p>
+
+  </div>
+  <div class="col-xs-6">
+  
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+   
+
+  </div>
+  <div class="col-xs-6">
+ 
+  </div>
+</div>
+
+ 
+
+ </div>
+

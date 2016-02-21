@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_pet, only: [:show, :edit, :update, :destroy, :get_email]
+    before_action :set_pet, only: [:show, :edit, :update, :destroy, :profileuser, :get_email]
 
 	def index
 
@@ -64,6 +64,9 @@ class PetsController < ApplicationController
         flash[:alert] = "Não conseguimos atualizar as informações do seu Pet."
         render "edit"
       end
+    end
+
+    def profileuser
     end
 
     def matches

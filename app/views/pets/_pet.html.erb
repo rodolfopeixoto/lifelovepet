@@ -4,7 +4,7 @@
 	    <div class="like"></div> 
 	    <div class="dislike"></div>    
 	      <div class="img"><%= image_tag pet.picture.url(:medium), :class => "img-responsive" %></div>
-	        
+	      <%= link_to  pet_path(pet) do %>  
 	      <div class="row">
 
              <div class="col-xs-6">
@@ -12,19 +12,25 @@
              </div>
 
              <div class="col-xs-6">
-                  <div class="user-location"><i class="fa fa-map-marker"></i>   <%= firstNameCity(pet.user.city)  %> <%= pet.user.state %> </div>
+                    <div class="user-breed "><i class="fa fa-paw"></i> <%= pet.breed %></div>
              </div>
           </div>
+     <% end %>
 
-
+ 
+  <%= link_to profileuser_pet_path(pet) do %>
+ 
           <div class="row">
              <div class="col-xs-6">
-                  <div class="user-breed "><i class="fa fa-paw"></i> <%= pet.breed %></div>
+             <div class="user-location"><i class="fa fa-map-marker"></i>   <%= firstNameCity(pet.user.city)  %> <%= pet.user.state %> </div>
+                 
              </div>
              <div class="col-xs-6">
                  <div class="user-name"><i class="fa fa-user"></i> <%= pet.user.firstName %>  </div>
              </div>
          </div>
+
+    <% end %>
          <%= link_to "", create_friendships_path(friend_id: pet.id), id: "pet_#{pet.id}", method: :post, :remote => true %>
 
 	</li>

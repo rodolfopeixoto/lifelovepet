@@ -9,11 +9,11 @@ Rails.application.routes.draw do
       root :to => 'devise/sessions#new', as: :unauthenticated_root
     end
 end
-
     resources :pets do
       member do
         get 'profile'
         get 'matches'
+        get 'profileuser'
       end
     end
   
