@@ -64,6 +64,10 @@ class PetsController < ApplicationController
       end
     end
 
+    def matches
+      @matches = current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
+    end
+
 	private
 
   def pet_params
