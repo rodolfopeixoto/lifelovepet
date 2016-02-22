@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-xs-6">
 
-<%= image_tag @pet.picture.url(:thumb), :class => "img-circle" %>
+   <%= image_tag @pet.picture.url(:thumb), :class => "img-circle" %>
   </div>
   <div class="col-xs-6"> 
 
@@ -18,8 +18,8 @@
 <div class="row">
   <div class="col-xs-6">
   <br>
-      <label>Idade</label>
-   <p><%= @pet.user.dateOfBirth == "cat" ? "Gato" : "Cachorro" %></p>
+      <label>Dia do Nascimento</label>
+   <p><%= @pet.user.dateOfBirth %></p>
   </div>
   <div class="col-xs-6"> 
   <br>
