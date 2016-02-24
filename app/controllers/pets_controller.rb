@@ -4,7 +4,6 @@ class PetsController < ApplicationController
 
 	def index
 
-      #@pets = Pet.animal(current_user.pet.animal).not_me(current_user.pet).where('id < ?', params[:id]).limit(10) - current_user.pet.matches(current_user.pet)
 	     if current_user.pet.nil?
          @pets = Pet.all
        else

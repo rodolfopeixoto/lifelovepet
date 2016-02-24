@@ -1,4 +1,4 @@
-<% @pets.each do |pet| %>
+ 
 
 	<li id="<%= pet.id %>"> 
 	    <div class="like"></div> 
@@ -34,7 +34,6 @@
          <%= link_to "", create_friendships_path(friend_id: pet.id), id: "pet_#{pet.id}", method: :post, :remote => true %>
 
 	</li>
-
-<% end %>
+ 
 
 
