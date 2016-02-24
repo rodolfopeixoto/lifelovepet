@@ -7,4 +7,5 @@ module ApplicationHelper
        	city[0]
        end
 	end
+ 
 end

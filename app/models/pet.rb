@@ -1,8 +1,12 @@
 class Pet < ActiveRecord::Base
-      
+     
+
+        default_scope { order('id DESC') }
+
+
       belongs_to :user
       has_many :friendships, dependent: :destroy
-      has_many :inverse_friendships, class_name: "friendship", foreign_key: "friend_id", dependent: :destroy
+      has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
 
       has_attached_file :picture,
                         :storage => :s3,
@@ -19,7 +23,7 @@ class Pet < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
  
 
-	  default_scope { order('id DESC') }
+
 
 
     def matches(current_user)
@@ -44,7 +48,7 @@ class Pet < ActiveRecord::Base
       self.friendships.where(friend_id: pet2).first.destroy
     end
   end
-end
+
 
     def self.animal(pet)
       case pet.animal
@@ -60,3 +64,8 @@ end
     def self.not_me(current_user)
       where.not(id: current_user.pet.id)
     end
+
+
+
+end
+

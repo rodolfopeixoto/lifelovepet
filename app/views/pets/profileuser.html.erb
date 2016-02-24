@@ -1,5 +1,5 @@
  <div class="petProfile">
-
+<h3>Perfil do Usuário</h3>
 <div class="row">
   <div class="col-xs-6">
 
@@ -18,37 +18,26 @@
 <div class="row">
   <div class="col-xs-6">
   <br>
-      <label>Dia do Nascimento</label>
-   <p><%= @pet.user.dateOfBirth %></p>
+      <label>Idade</label>
+   <p><%= age(@pet.user.dateOfBirth) %></p>
   </div>
   <div class="col-xs-6"> 
   <br>
    <label>Cidade</label>
-   <p><%= @pet.user.city %></p>
+   <p><%= @pet.user.city %> - <%= @pet.user.state %></p>
 
   </div>
 </div>
 
+
 <div class="row">
   <div class="col-xs-6">
-  
-   <label>Estado</label>
-   <p><%= @pet.user.state %></p>
-
-  </div>
-  <div class="col-xs-6">
-  
     
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-6">
-   
+  <%= link_to "Voltar", :back %>
 
   </div>
   <div class="col-xs-6">
- 
+    
   </div>
 </div>
 

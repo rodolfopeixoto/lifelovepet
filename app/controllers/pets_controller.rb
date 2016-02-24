@@ -5,7 +5,11 @@ class PetsController < ApplicationController
 	def index
 
       #@pets = Pet.animal(current_user.pet.animal).not_me(current_user.pet).where('id < ?', params[:id]).limit(10) - current_user.pet.matches(current_user.pet)
-	    @pets = Pet.all.where('animal = ?', current_user.pet.animal).where.not('id = ?', current_user.pet.id).limit(2)
+	     if current_user.pet.nil?
+         @pets = Pet.all
+       else
+        @pets = Pet.all.animal(current_user.pet).not_me(current_user).limit(2)
+       end
 	end
 
 
@@ -38,16 +42,9 @@ class PetsController < ApplicationController
 	end
 
 	def update
-     if @pet.picture?
-        
-        @pet.picture.destroy
-        self.update_pet
-       
-      else 
-        self.update_pet
-      end
-
-    end
+   @pet.picture.destroy if @pet.picture.exists?
+   self.update_pet
+  end
 
     def destroy
       @pet.destroy
