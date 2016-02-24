@@ -18,12 +18,12 @@
 <div class="row">
   <div class="col-xs-6">
   <br>
-      <label>Animal</label>
-   <p><%= @pet.animal == "cat" ? "Gato" : "Cachorro" %></p>
+      <label><%= t('pets.show.animal') %></label>
+   <p><%= @pet.animal == "cat" ? t('pets.show.cat') : t('pets.show.dog') %></p>
   </div>
   <div class="col-xs-6"> 
   <br>
-   <label>Raça</label>
+   <label><%= t('pets.show.breed') %></label>
    <p><%= @pet.breed %></p>
 
   </div>
@@ -32,14 +32,14 @@
 <div class="row">
   <div class="col-xs-6">
   
-   <label>Tamanho</label>
+   <label><%= t('pets.show.size') %></label>
    <p><%= @pet.size %></p>
 
   </div>
   <div class="col-xs-6">
   
-   <label>Idade</label>
-   <p><%= @pet.age %> ano(s) e <%= @pet.ageMonth %> mes(es)</p>
+   <label><%= t('pets.show.age') %></label>
+   <p><%= @pet.age %> <%= t('pets.show.years') %> e <%= @pet.ageMonth %> <%= t('pets.show.month')%></p>
 
   </div>
 </div>
@@ -47,7 +47,7 @@
 <div class="row">
   <div class="col-xs-6">
   
-   <label>Descrição</label>
+   <label><%= t('pets.show.bio') %></label>
    <p class="text-justify"><%= @pet.bio %></p>
 
   </div>
@@ -60,12 +60,12 @@
 <div class="row">
   <div class="col-xs-6">
   
-   <%= link_to "Voltar", :back %>
+   <%= link_to  t('links.back'), :back %>
 
   </div>
   <div class="col-xs-6">
   	 <% if @pet.user == current_user %>
-        <%= link_to "Editar", edit_pet_path %>
+        <%= link_to t('links.pets.edit'), edit_pet_path %>
      <% end %>
   </div>
 </div>

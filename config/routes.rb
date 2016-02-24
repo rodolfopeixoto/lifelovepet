@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  
+ 
+ LOCALES = /en|pt\-BR/
+
+ scope "(:locale)", locale: LOCALES do 
   devise_for :users 
   devise_scope :user do
     authenticated :user do
@@ -8,7 +11,7 @@ Rails.application.routes.draw do
     unauthenticated :user do
       root :to => 'devise/sessions#new', as: :unauthenticated_root
     end
-end
+  end
     resources :pets do
       member do
         get 'profile'
@@ -22,7 +25,7 @@ end
 
   get 'matches/get_email' => 'pets#get_email'
 
- 
+end 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

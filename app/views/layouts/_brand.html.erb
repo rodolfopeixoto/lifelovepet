@@ -1,3 +1,20 @@
  
   	<%= image_tag "logo.png", :alt => "Marca 3Lovet", :class => "img-responsive center-block"  %> 
+  <div class="row">
+    <div class="col-md-4">
+    <%= link_to :locale => 'pt-BR' do %>
+      <%= image_tag 'pt-br.png', :alt => "Português" %>
+    <% end %>
+    </div>
+    <div class="col-md-4">
+     <%= link_to :locale => 'en' do %>
+      <%= image_tag 'en.png', :alt => "English" %>
+     <% end %>
+    </div>
+    <div class="col-md-4">
+    <%= link_to :locale => 'es' do %>
+      <%= image_tag 'es.png', :alt => "Español" %>
+    <% end %>
+    </div>
+  </div>
  

@@ -1,5 +1,5 @@
  <div class="container-fluid"> 
-  <h2>Pet</h2>
+  <h2><%= t 'pets.form.title' %></h2>
 <%= form_for @pet, :html => {  :multipart => true} do |f| %>
   
   <div class="row">
@@ -35,7 +35,7 @@
     <%= f.label :age, "ano(s)" %>
 
     <%= f.number_field :ageMonth, in: 1...12  %>
-    <%= f.label :ageMonth, "mes(es)" %>
+    <%= f.label :ageMonth %>
   </div>
 
   
