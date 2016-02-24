@@ -59,7 +59,7 @@
 
       
              <div class="form-group">
-               <label>Email</label>
+               <%= f.label :email %>
                <%= f.email_field :email, :class => "form-control"%>
             </div>
 
@@ -69,14 +69,14 @@
       <div class="row">
         <div class="col-md-6">      
           <div class="form-group">
-            <label>Nome</label>
+            <%= f.label :firstName %>
             <%= f.text_field :firstName, :class => "form-control" %>
           </div>
         </div>
 
      <div class="col-md-6">      
        <div class="form-group">
-         <label>Sobrenome</label>
+        <%= f.label :lastName %>
          <%= f.text_field :lastName, :class => "form-control" %>
        </div>
      </div>
@@ -84,11 +84,11 @@
 
 
 
-      <button type="button" class="btn btn-custom form-control btn-lg next-step">Avançar</button>
+      <button type="button" class="btn btn-custom form-control btn-lg next-step">Next</button>
     </div>
 
     <div class="tab-pane" role="tabpanel" id="step2"> 
-    <h4 class="text-left text_bold">Usuário</h4>
+    <h4 class="text-left text_bold">User</h4>
  
 
 
@@ -96,7 +96,7 @@
         <div class="col-md-6">
 
           <div class="form-group">
-            <label>Data de Nascimento</label>
+             <%= f.label :dateOfBirth %>
              <%= f.date_field :dateOfBirth, :class => "form-control" %>
           </div>
 
@@ -106,7 +106,7 @@
 
 
       <div class="form-group">
-         <label>Cidade</label>
+        <%= f.label :city %>
         <%= f.text_field :city, :class => "form-control" %>
       </div>
 
@@ -119,7 +119,7 @@
       <div class="col-md-6">
  
              <div class="form-group">
-                <label>Bairro</label>
+                <%= f.label :location %>
                 <%= f.text_field :location, :class => "form-control" %>
             </div>
 
@@ -127,7 +127,7 @@
       <div class="col-md-6">
 
 <div class="form-group">
-         <label>Estado</label> 
+        <%= f.label :state %>
         <%= f.select :state, 
             options_for_select([['AC','AC'],['AL','AL'],['AP','AP'],['AM','AM'],['BA','BA'],['CE','CE'],['DF','DF'],['ES','ES'],
               ['GO','GO'],['MA','MA'],['MT','MT'],['MS','MS'],['MG','MG'],['PA','PA'],['PB','PB'],['PR','PR'],['PE','PE'],['PI','PI'],
@@ -142,28 +142,28 @@
 
 
 
-    <button type="button" class="btn btn-custom btn-lg form-control next-step">Avançar</button>
+    <button type="button" class="btn btn-custom btn-lg form-control next-step">Next</button>
   </div>
   <div class="tab-pane" role="tabpanel" id="step3">
-  <h4 class="text-left text_bold">Usuário</h4>
+  <h4 class="text-left text_bold">User</h4>
 
     <div class="text-center">
       
       
      <div class="form-group">
-         <label>Senha</label>
+        <%= f.label :password %>
       <%= f.password_field :password, :class => "form-control" %>
     </div> 
 
     <div class="form-group">
-         <label>Repita a senha</label>
+        <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, :class => "form-control" %>
     </div>
 
     </div>
 
     <div class="form-group"> 
-      <%= f.submit "Cadastrar", :class => "btn btn-custom form-control text_bold" %>
+      <%= f.submit :class => "btn btn-custom form-control text_bold" %>
     </div>
 
     

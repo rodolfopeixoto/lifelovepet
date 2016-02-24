@@ -1,5 +1,6 @@
 class Pet < ActiveRecord::Base
      
+        validates :picture, presence: false,  allow_nil: false
 
         default_scope { order('id DESC') }
 

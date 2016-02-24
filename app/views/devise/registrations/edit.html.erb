@@ -1,5 +1,5 @@
 <div class="center-container">
-  <h3 class="text-center">Usuário - Atualizar Informações</h3>
+  <h3 class="text-center">User - Information</h3>
 
 
 <div class="row" style="border-bottom: 1px solid #D8ECCF;">
@@ -54,10 +54,10 @@
   <%= devise_error_messages! %>
   <div class="tab-content">
     <div class="tab-pane active" role="tabpanel" id="step1">
-      <h4 class="text-left text_bold">Usuário</h4>
+      <h4 class="text-left text_bold">User</h4>
 
       <div class="form-group">
-        <label>Email</label>
+        <%= f.label :email %>
         <%= f.email_field :email, :class => "form-control"%>
       </div>
 
@@ -76,19 +76,19 @@
         <%= f.text_field :lastName, :class => "form-control" %>
       </div>
 
-      <button type="button" class="btn btn-custom form-control btn-lg next-step">Avançar</button>
+      <button type="button" class="btn btn-custom form-control btn-lg next-step">Next</button>
     </div>
 
     <div class="tab-pane" role="tabpanel" id="step2"> 
-    <h4 class="text-left text_bold">Usuário</h4>
+    <h4 class="text-left text_bold">User</h4>
 
 
 
         <div class="row">
         <div class="col-md-6">
 
-          <div class="form-group">
-            <label>Data de Nascimento</label>
+          <div class="form-group"> 
+            <%= f.label :dateOfBirth %>
              <%= f.date_field :dateOfBirth, :class => "form-control" %>
           </div>
 
@@ -98,7 +98,7 @@
 
 
       <div class="form-group">
-         <label>Cidade</label>
+        <%= f.label :city %>
         <%= f.text_field :city, :class => "form-control" %>
       </div>
 
@@ -111,7 +111,7 @@
       <div class="col-md-6">
  
              <div class="form-group">
-                <label>Bairro</label>
+                <%= f.label :location %>
                 <%= f.text_field :location, :class => "form-control" %>
             </div>
 
@@ -119,7 +119,7 @@
       <div class="col-md-6">
 
 <div class="form-group">
-         <label>Estado</label> 
+        <%= f.label :state %>
         <%= f.select :state, 
             options_for_select([['AC','AC'],['AL','AL'],['AP','AP'],['AM','AM'],['BA','BA'],['CE','CE'],['DF','DF'],['ES','ES'],
               ['GO','GO'],['MA','MA'],['MT','MT'],['MS','MS'],['MG','MG'],['PA','PA'],['PB','PB'],['PR','PR'],['PE','PE'],['PI','PI'],
@@ -133,7 +133,7 @@
 
 
 
-    <button type="button" class="btn btn-custom btn-lg form-control next-step">Avançar</button>
+    <button type="button" class="btn btn-custom btn-lg form-control next-step">Next</button>
   </div>
   <div class="tab-pane" role="tabpanel" id="step3">
   <h4 class="text-left text_bold">User</h4>
@@ -141,19 +141,19 @@
     <div class="text-center">
      
      <div class="form-group">
-         <label>Senha</label>
+      <%= f.label :password %>
       <%= f.password_field :password, :class => "form-control"%>
       <i>(deixe em branco se você não quer mudá-lo)</i>
     </div> 
 
       
      <div class="form-group">
-         <label>Confirmação da senha</label>
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, :class => "form-control" %>
     </div> 
 
     <div class="form-group">
-         <label>Senha atual</label>
+     <%= f.label :current_password %>
       <%= f.password_field :current_password, :class => "form-control"%>
       <i>(precisamos de sua senha atual para confirmar as alterações)</i>
     </div>
@@ -161,7 +161,7 @@
     </div>
 
     <div class="form-group"> 
-      <%= f.submit "Atualizar" , :class => "btn btn-custom form-control text_bold" %>
+      <%= f.submit :class => "btn btn-custom form-control text_bold" %>
     </div>
 
     
@@ -176,15 +176,20 @@
 </div>
 
 
-<h3>Cancelar Conta</h3>
-
-<p>Não está feliz?</p>
-
- <%= button_to "Cancelar Conta",  registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete, :class => "btn btn-alert form-control text_bold" %>
-
 
 <% end %> 
-<b><%= link_to "Voltar", :back %></b>
+
+<div class="row">
+  <div class="col-md-6">
+
+<%= link_to "Delete your Account", registration_path(resource_name), data: { confirm: "Are you sure?"}, method: :delete %>
+
+  </div>
+  <div class="col-md-6">
+       <b><%= link_to "Back", :back %></b>
+  </div>
+</div>
+
 
 <script>
   
