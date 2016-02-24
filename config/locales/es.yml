@@ -1,0 +1,40 @@
+es:
+  activerecord:
+    models:
+      pet: Mascota
+      user: Usuario
+    attributes:
+     user:
+       email: Email
+       firstName: Nombre
+       lastName: Apellido
+       dateOfBirth: Fecha de Nacimiento
+       city: Ciudad
+       location: Barrio
+       state: Estado
+       password: Contraseña
+       password_confirmation: Confirmación de la Contraseña
+       current_password: Contraseña Actual
+     pet:
+       name: Nombre
+       size: Tamaño
+       age:  Años
+       ageMonth: Mes(es)
+       animal: Animal
+       breed: Raza
+       bio: Carácter
+  links:
+    back: Retorno
+    pets:
+      edit: Editar
+  pets:
+    show:
+      animal: Animal
+      dog: Perro
+      cat: Gato
+      breed: Raça
+      size: Tamaño
+      age: Edad
+      years: Ano(s)
+      month: Mes(es)
+      bio: Caracteristicas

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
- LOCALES = /en|pt\-BR/
+ LOCALES = /en|es|pt\-BR/
 
  scope "(:locale)", locale: LOCALES do 
   devise_for :users 
