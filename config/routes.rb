@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
- 
+
  LOCALES = /en|es|pt\-BR/
 
- scope "(:locale)", locale: LOCALES do 
+ scope "(:locale)", locale: LOCALES do  
+    mount RailsAdmin::Engine => '/3lovetadm', as: 'rails_admin'
   devise_for :users 
   devise_scope :user do
     authenticated :user do

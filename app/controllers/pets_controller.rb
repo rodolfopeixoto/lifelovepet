@@ -1,7 +1,7 @@
 class PetsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_pet, only: [:show, :edit, :update, :destroy, :profileuser, :get_email]
-
+    load_and_authorize_resource
 	def index
 
 	     if current_user.pet.nil?
@@ -45,12 +45,12 @@ class PetsController < ApplicationController
    self.update_pet
   end
 
-    def destroy
+  def destroy
       @pet.destroy
       flash[:notice] = "Perfil do seu pet foi excluído com sucesso"
 
       redirect_to @pet
-    end
+  end
 
     def update_pet
       if @pet.update(pet_params)
