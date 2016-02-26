@@ -1,7 +1,7 @@
 RailsAdmin.config do |config|
 
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.role == "admin"
+    redirect_to ( current_user ? main_app.authenticated_root_path : main_app.unauthenticated_root_path  ) unless current_user.role == "admin"
   end
 
   ### Popular gems integration
