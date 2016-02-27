@@ -65,7 +65,7 @@ gem "autoprefixer-rails"
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'devise'
 gem 'google-analytics-rails', '1.0.0' 
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip"
 gem 'aws-sdk' 
 gem "cancan"
 gem 'rails_admin'

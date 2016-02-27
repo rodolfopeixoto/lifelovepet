@@ -2,9 +2,10 @@ class PetsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_pet, only: [:show, :edit, :update, :destroy, :profileuser, :get_email]
     before_action :check_user, only: [:edit, :destroy, :update]
-
     load_and_authorize_resource
-	def index
+	
+
+  def index
 
 	     if current_user.pet.nil?
          @pets = Pet.all
@@ -64,7 +65,7 @@ class PetsController < ApplicationController
       end
     end
 
-  def check_user
+    def check_user
       redirect_to pets_path unless current_user.id == @pet.user_id
   end
 
