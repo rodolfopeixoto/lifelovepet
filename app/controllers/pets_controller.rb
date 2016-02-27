@@ -2,7 +2,7 @@ class PetsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_pet, only: [:show, :edit, :update, :destroy, :profileuser, :get_email]
     before_action :check_user, only: [:edit, :destroy, :update]
-    load_and_authorize_resource
+    load_and_authorize_resource except: [:create]
 	
 
   def index
@@ -12,6 +12,12 @@ class PetsController < ApplicationController
        else
         @pets = Pet.all.animal(current_user.pet).not_me(current_user).limit(2)
        end
+        
+      respond_to do |format|
+        format.js
+        format.html
+      end
+
 	end
 
 
@@ -85,7 +91,7 @@ class PetsController < ApplicationController
 	private
 
   def pet_params
-      params.require(:pet).permit(:name, :size, :age,:ageMonth, :animal, :breed, :user_id, :bio, :picture)
+      params.require(:pet).permit(:name, :size, :age, :breed, :ageMonth, :animal, :user_id, :bio, :picture)
   end
 
 	def set_pet

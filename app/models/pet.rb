@@ -33,7 +33,7 @@ class Pet < ActiveRecord::Base
 
 
   def request_match(pet_2)
-    self.friendships.create(friend: user_2)
+    self.friendships.create(friend: pet_2)
   end
 
   def accept_friendship
@@ -66,7 +66,7 @@ class Pet < ActiveRecord::Base
       where.not(id: current_user.pet.id)
     end
 
-
+ 
 
 end
 

@@ -8,7 +8,12 @@ class Ability
     if user.role == "admin"       
       can :manage, :all
     else
-      can :read, :all                   # allow everyone to read everything
+      can :new, :all
+      can :create, :all
+      can :update, :all 
+      can :destroy, :all
+      can :show, :all  
+      can :index, :all               # allow everyone to read everything
     end
 
     # Define abilities for the passed in user here. For example:
