@@ -1,9 +1,9 @@
 class Pet < ActiveRecord::Base
-     
-        validates :picture, presence: false,  allow_nil: false
 
-        default_scope { order('id DESC') }
+      validates :picture, presence: false,  allow_nil: false
 
+      default_scope { order('id DESC') }
+ 
 
       belongs_to :user
       has_many :friendships, dependent: :destroy
