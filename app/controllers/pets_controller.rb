@@ -10,7 +10,7 @@ class PetsController < ApplicationController
 	     if current_user.pet.nil?
          @pets = Pet.all
        else
-        @pets = Pet.all.animal(current_user.pet).not_me(current_user).limit(2)
+        @pets = Pet.all.animal(current_user.pet).not_me(current_user).not_show_dislike(current_user.pet.friendships).limit(2)
        end
         
       respond_to do |format|

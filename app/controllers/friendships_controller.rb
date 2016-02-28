@@ -21,6 +21,12 @@ class FriendshipsController < ApplicationController
 
 	 end
 
+   def dislike  
+     @friendship = current_user.pet.dislike_friendship(@friend)
+      respond_to do |format|
+         format.js
+      end
+   end
 
 	 def destroy
        @friendship = current_user.pet.remove_match(@friend)

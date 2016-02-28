@@ -33,7 +33,8 @@ $('.actions .like, .actions .dislike').click(function(e){
 
   $("#tinderslide").jTinder({
     onDislike: function (item) {
-      //alert('Dislike image ' + (item.index()+1));
+      var myId = $("#tinderslide > ul li").last().attr("id");
+      $("#pet_" + myId)[0].click();
     },
     onLike: function (item) {
       var myId = $("#tinderslide > ul li").last().attr("id");

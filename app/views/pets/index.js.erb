@@ -3,7 +3,7 @@ $("#tinderslide > ul li").tsort({attr:"id"});
 $("#tinderslide").jTinder();
 load_more = true;
 
-<% unless current_user.sign_in_count == 1 %>
-   swal("Good job!", "Cadastre agora o seu pet! <%= link_to 'Cadastrar', new_pet_path %>", "success")
+<% if current_user.sign_in_count == 1 %>
+   swal("Good job!", "Cadastre agora o seu pet! <%= link_to 'Cadastrar', new_pet_path %>", "success");
 <% end %>
 

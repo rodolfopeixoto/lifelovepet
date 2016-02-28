@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160225013743) do
   create_table "friendships", force: :cascade do |t|
     t.integer  "pet_id"
     t.integer  "friend_id"
-    t.string   "state",       default: "pending"
+    t.string   "state",                           default: "pending"
     t.datetime "friended_at"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false

@@ -24,20 +24,30 @@ class Pet < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
  
 
-
-
-
-    def matches(current_user)
+  def matches(current_user)
       friendships.where(state: "peding").map(&friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
-    end
+  end
 
 
   def request_match(pet_2)
     self.friendships.create(friend: pet_2)
   end
 
-  def accept_friendship
-    self.update_attributes(state: "active", friended_at: Time.now)
+  def request_unlike(pet_2)
+    self.friendships.create(friend: pet_2)
+  end
+
+  def accept_match(pet_2)
+    self.friendships.where(friend: pet_2).first.update_attributes(:state, "ACTIVE")
+  end
+
+  def dislike_friendship(pet_2)
+    self.friendships.create(friend: pet_2)
+    self.friendships.where(friend: pet_2).first.update_attributes(state: "dislike", friended_at: Time.now)
+  end
+
+  def self.not_show_dislike(pet_friend)
+    pet_friend.where.not(state: "dislike")
   end
 
   def remove_match(pet2)
@@ -51,7 +61,7 @@ class Pet < ActiveRecord::Base
   end
 
 
-    def self.animal(pet)
+  def self.animal(pet)
       case pet.animal
         when "cat"
           where('animal = ?', 'cat')
@@ -60,13 +70,11 @@ class Pet < ActiveRecord::Base
         else
           all
       end
-    end
+  end
 
-    def self.not_me(current_user)
+  def self.not_me(current_user)
       where.not(id: current_user.pet.id)
-    end
-
- 
+  end
 
 end
 
