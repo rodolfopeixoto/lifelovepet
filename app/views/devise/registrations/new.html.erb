@@ -55,7 +55,7 @@
   <%= devise_error_messages! %>
   <div class="tab-content">
     <div class="tab-pane active" role="tabpanel" id="step1">
-      <h4 class="text-left text_bold">Usuário</h4> 
+      <h4 class="text-left text_bold"><%= t('user.new.title.user') %></h4> 
 
       
              <div class="form-group">
@@ -87,19 +87,19 @@
    <%= f.label :gender %> 
    <fieldset>
      <%= f.radio_button :gender, "male" %>
-     <%= f.label :gender_male, "Masculino"  %>
+     <%= f.label :gender_male  %>
      <%= f.radio_button :gender, "female" %>
-     <%= f.label :gender_female, "Femenino" %> 
+     <%= f.label :gender_female %> 
     </fieldset>
   </div>
 
 
 
-      <button type="button" class="btn btn-custom form-control btn-lg next-step">Next</button>
+      <button type="button" class="btn btn-custom form-control btn-lg next-step"><%= t('button.next') %></button>
     </div>
 
     <div class="tab-pane" role="tabpanel" id="step2"> 
-    <h4 class="text-left text_bold">User</h4>
+    <h4 class="text-left text_bold"><%= t('user.new.title.user') %></h4>
  
 
 
@@ -153,10 +153,10 @@
 
 
 
-    <button type="button" class="btn btn-custom btn-lg form-control next-step">Next</button>
+    <button type="button" class="btn btn-custom btn-lg form-control next-step"><%= t('button.next') %></button>
   </div>
   <div class="tab-pane" role="tabpanel" id="step3">
-  <h4 class="text-left text_bold">User</h4>
+  <h4 class="text-left text_bold"><%= t('user.new.title.user') %></h4>
 
     <div class="text-center">
       

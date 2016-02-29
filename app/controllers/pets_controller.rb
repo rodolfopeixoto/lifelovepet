@@ -1,24 +1,21 @@
 class PetsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_pet, only: [:show, :edit, :update, :destroy, :profileuser, :get_email]
-  before_action :check_user, only: [:edit, :destroy, :update]
+  before_action               :authenticate_user!
+  before_action               :set_pet, only: [:show, :edit, :update, :destroy, :profileuser, :get_email]
+  before_action               :check_user, only: [:edit, :destroy, :update]
   load_and_authorize_resource except: [:create]
 
 
   def index
-
     if current_user.pet.nil?
      @pets = Pet.all
-   else
-    @pets = Pet.all.animal(current_user.pet).not_me(current_user).not_show_dislike(current_user.pet.friendships).limit(2)
+    else
+      @pets = Pet.all.animal(current_user.pet).not_me(current_user).limit(2)
+    end
+   respond_to do |format|
+     format.js
+     format.html
+   end
   end
-
-  respond_to do |format|
-    format.js
-    format.html
-  end
-
-end
 
 
 def new

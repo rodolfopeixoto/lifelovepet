@@ -1,16 +1,31 @@
  <div class="container-fluid"> 
   <h2><%= t 'pets.form.title' %></h2>
+
+
 <%= form_for @pet, :html => {  :multipart => true} do |f| %>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+         <%= image_tag @pet.picture.url(:thumb), :class => "img-circle" %>
+       </div>
+    </div>
+    <div class="col-md-6">
+ 
+    </div>
+  </div>
+
   
   <div class="row">
     <div class="col-md-6">
-       <%= f.label :picture, "Foto" %>
-       <%= f.file_field :picture %>
+      <div class="form-group">
+         <%= f.file_field :picture, :class => "file" %>
+       </div>
     </div>
     <div class="col-md-6">
-        <div class="form-group">
-         <%= label_tag(:name) %>
-         <%= f.text_field :name, :class => "form-control" %>
+        <div class="form-group"> 
+         <%= f.text_field :name, :class => "form-control", :placeholder => :name %>
        </div>
     </div>
   </div>
@@ -19,20 +34,20 @@
   <div class="form-group">
    <%= f.label :size %> 
    <fieldset>
-     <%= f.radio_button :size, "pequeno" %>
-     <%= f.label :size_small, "Pequeno"  %>
-     <%= f.radio_button :size, "Medio" %>
-     <%= f.label :size_medium, "Médio" %>
-     <%= f.radio_button :size, "grande" %>
-     <%= f.label :size_big, "Grande" %>
+     <%= f.radio_button :size, "small" %>
+     <%= f.label :size_small  %>
+     <%= f.radio_button :size, "medium" %>
+     <%= f.label :size_medium %>
+     <%= f.radio_button :size, "big" %>
+     <%= f.label :size_big %>
     </fieldset>
   </div>
 
 
-  <label>Idade</label>  
+  <%= f.label :age %>
   <div class="form-group">
     <%= f.number_field :age, in: 0...15 %>
-    <%= f.label :age, "ano(s)" %>
+    <%= f.label :age %>
 
     <%= f.number_field :ageMonth, in: 1...12  %>
     <%= f.label :ageMonth %>
@@ -40,22 +55,22 @@
 
   
    <div class="form-group">
-   <%= f.label :animal, "Animal" %> 
+   <%= f.label :animal %> 
     <fieldset>
-      <%= f.label :animal_cat, "Gato" %>
+      <%= f.label :animal_cat %>
       <%= f.radio_button :animal, "cat"  %>
-      <%= f.label :animal_dog, "Cachorro" %>
+      <%= f.label :animal_dog %>
       <%= f.radio_button :animal, "dog"  %>
     </fieldset>
   </div>
 
    <div class="form-group">
-      <%= f.label :breed, "Raça" %>
+      <%= f.label :breed %>
       <%= f.text_field :breed, :class => "form-control"  %>
   </div>
 
   <div class="form-group">
-    <%= f.label :bio, "Descrição" %>
+    <%= f.label :bio %>
     <%= f.text_area :bio, :class => "form-control" %>
   </div>
 

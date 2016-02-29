@@ -20,11 +20,102 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  nav:
+    sign_out: Exit
+    user: User
+    search: Search
+    pet: Pet
+  helpers:
+    submit:
+      pet:
+        create: Sign up
+        update: Update
+    label:
+      user:
+        remember_me: Lembre-me 
+        gender_male: Male
+        gender_female: Female
+      pet:
+        size_small: Small
+        size_medium: Medium
+        size_big: Big
+        animal_dog: Dog
+        animal_cat: Cat
+        age: year(s)
+        ageMonth: month(es)
+    submit:
+      user:
+        create: Sign in
+        update: Update
+  button:
+    next: Next
+  activerecord:
+    models:
+      pet: Pet
+      user: User
+    attributes:
+     user:
+       email: E-mail
+       firstName: first Name
+       lastName: lastName
+       gender: Gender
+       dateOfBirth: Date Of Birth
+       city: City
+       location: Neighborhood
+       state: State
+       password: Password
+       password_confirmation: Password Confirmation
+       current_password: Current Password
+
+     pet:
+       name: Name
+       size: Size
+       age:  Age
+       ageMonth: Month
+       animal: Animal
+       breed: Breed
+       bio: Características
   links:
     back: Back
-    pets:
-      edit: Edit
+    login: Sign in
+    sign_up: Sign up
+    forgot_your_password: Forgot your password?
+    didnt_receive_confirmation_instructions: Não recebeu as instruções de confirmação?
+    didnt_receive_unlock_instructions: Didn't receive unlock instructions?
+    user:
+      delete: Delete your Account
+  user:
+    new:
+      title:
+        user: User  
+    edit:
+      title:
+        user: User
+  pets:
+    edit: Edit
   pets:
     show:
-      bio: Characteristics
+      animal: Animal
+      dog: Dog
+      cat: Cat
+      breed: Breed
+      size: Size
+      age: Age
+      years: year(s)
+      month: Month
+      bio: Caracteristicas
+  devise:
+    user:
+      edit:
+        current_password:
+          message: (we need your current password to confirm your changes) 
+        password:
+          message: (leave blank if you don't want to change it)
+  pets:
+    form:
+      title: Pet
+  profile:
+    title: User Profile
+    age: Age
+    city: City
+    country: Country

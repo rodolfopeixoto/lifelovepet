@@ -21,11 +21,10 @@ class FriendshipsController < ApplicationController
 
 	 end
 
-   def dislike  
-     @friendship = current_user.pet.dislike_friendship(@friend)
-      respond_to do |format|
-         format.js
-      end
+   #friendships_controller.rb
+   def dislike   
+     @friendship = current_user.pet.dislike_friendship(@friend) 
+     render nothing: true
    end
 
 	 def destroy

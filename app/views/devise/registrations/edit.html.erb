@@ -54,7 +54,7 @@
   <%= devise_error_messages! %>
   <div class="tab-content">
     <div class="tab-pane active" role="tabpanel" id="step1">
-      <h4 class="text-left text_bold">User</h4>
+      <h4 class="text-left text_bold"><%= t('user.edit.title.user') %></h4>
 
       <div class="form-group">
         <%= f.label :email %>
@@ -80,17 +80,17 @@
    <%= f.label :gender %> 
    <fieldset>
      <%= f.radio_button :gender, "male" %>
-     <%= f.label :gender_male, "Masculino"  %>
+     <%= f.label :gender_male  %>
      <%= f.radio_button :gender, "female" %>
-     <%= f.label :gender_female, "Femenino" %> 
+     <%= f.label :gender_female %> 
     </fieldset>
   </div>
 
-      <button type="button" class="btn btn-custom form-control btn-lg next-step">Next</button>
+      <button type="button" class="btn btn-custom form-control btn-lg next-step"><%= t('button.next') %></button>
     </div>
 
     <div class="tab-pane" role="tabpanel" id="step2"> 
-    <h4 class="text-left text_bold">User</h4>
+    <h4 class="text-left text_bold"><%= t('user.edit.title.user') %></h4>
 
 
 
@@ -145,17 +145,17 @@
 
 
 
-    <button type="button" class="btn btn-custom btn-lg form-control next-step">Next</button>
+    <button type="button" class="btn btn-custom btn-lg form-control next-step"><%= t('button.next') %></button>
   </div>
   <div class="tab-pane" role="tabpanel" id="step3">
-  <h4 class="text-left text_bold">User</h4>
+  <h4 class="text-left text_bold"><%= t('user.edit.title.user') %></h4>
 
     <div class="text-center">
      
      <div class="form-group">
       <%= f.label :password %>
       <%= f.password_field :password, :class => "form-control"%>
-      <i>(deixe em branco se você não quer mudá-lo)</i>
+      <i><%= t('devise.user.edit.password.message') %></i>
     </div> 
 
       
@@ -167,7 +167,7 @@
     <div class="form-group">
      <%= f.label :current_password %>
       <%= f.password_field :current_password, :class => "form-control"%>
-      <i>(precisamos de sua senha atual para confirmar as alterações)</i>
+      <i><%= t('devise.user.edit.current_password.message') %></i>
     </div>
 
     </div>
@@ -194,11 +194,11 @@
 <div class="row">
   <div class="col-md-6">
 
-<%= link_to "Delete your Account", registration_path(resource_name), data: { confirm: "Are you sure?"}, method: :delete %>
+<%= link_to t('links.user.delete'), registration_path(resource_name), data: { confirm: "Are you sure?"}, method: :delete %>
 
   </div>
   <div class="col-md-6">
-       <b><%= link_to "Back", :back %></b>
+       <b><%= link_to t('links.back'), :back %></b>
   </div>
 </div>
 

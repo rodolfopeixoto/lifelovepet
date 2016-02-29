@@ -1,4 +1,34 @@
 pt-BR:
+  nav:
+    sign_out: Sair
+    user: Usuário
+    search: Buscar
+    pet: Pet
+  helpers:
+    submit:
+      pet:
+        create: Cadastrar
+        update: Atualizar
+    label:
+      user:
+        remember_me: Lembre-me 
+        gender_male: Masculino
+        gender_female: Femenino
+      pet:
+        size: Tamanho
+        size_small: Pequeno
+        size_medium: Médio
+        size_big: Grande
+        animal_dog: Cachorro
+        animal_cat: Gato
+        age: ano(s)
+        ageMonth: mes(es)
+    submit:
+      user:
+        create: Logar
+        update: Atualizar
+  button:
+    next: Próximo
   activerecord:
     models:
       pet: Pet
@@ -8,13 +38,15 @@ pt-BR:
        email: E-mail
        firstName: Nome
        lastName: Sobrenome
+       gender: Gênero
        dateOfBirth: Data de Nascimento
        city: Cidade
        location: Bairro
        state: Estado
        password: Senha
        password_confirmation: Confirmação da Senha
-       current_password: Senha atual
+       current_password: Senha atual 
+
      pet:
        name: Nome
        size: Tamanho
@@ -25,8 +57,24 @@ pt-BR:
        bio: Características
   links:
     back: Voltar
+    login: Login
+    sign_up: Cadastra-se
+    forgot_your_password: Esqueceu a senha?
+    didnt_receive_confirmation_instructions: Não recebeu as instruções de confirmação?
+    didnt_receive_unlock_instructions: Não recebeu as instroções de desbloqueio?
+    user:
+      delete: Excluir Conta
     pets:
       edit: Editar
+  user:
+    new:
+      title:
+        user: Usuário  
+    edit:
+      title:
+        user: Usuário
+  pets:
+    edit: Editar
   pets:
     show:
       animal: Animal
@@ -38,3 +86,18 @@ pt-BR:
       years: Ano(s)
       month: Mes(es)
       bio: Caracteristicas
+  devise:
+    user:
+      edit:
+        current_password:
+          message: (precisamos de sua senha atual para confirmar as alterações)
+        password: 
+          message: (deixe em branco se você não quer mudá-lo)
+  pets:
+    form:
+      title: Pet
+  profile:
+    title: Perfil do Usuário
+    age: Idade
+    city: Cidade
+    country: País

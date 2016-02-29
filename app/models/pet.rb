@@ -22,8 +22,26 @@ class Pet < ActiveRecord::Base
       
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
- 
 
+
+  def self.animal(pet)
+      case pet.animal
+        when "cat"
+          where('animal = ?', 'cat')
+        when "dog"
+          where('animal = ?', 'dog')
+        else
+          all
+      end
+  end
+
+  def self.not_me(current_user)
+      where.not(id: current_user.pet.id)
+  end
+
+
+
+  #Friendship
   def matches(current_user)
       friendships.where(state: "peding").map(&friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
   end
@@ -58,22 +76,6 @@ class Pet < ActiveRecord::Base
     else
       self.friendships.where(friend_id: pet2).first.destroy
     end
-  end
-
-
-  def self.animal(pet)
-      case pet.animal
-        when "cat"
-          where('animal = ?', 'cat')
-        when "dog"
-          where('animal = ?', 'dog')
-        else
-          all
-      end
-  end
-
-  def self.not_me(current_user)
-      where.not(id: current_user.pet.id)
   end
 
 end

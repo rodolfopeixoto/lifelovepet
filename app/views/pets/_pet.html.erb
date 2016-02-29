@@ -1,8 +1,10 @@
  
 
 	<li id="<%= pet.id %>"> 
+  
 	    <div class="like"></div> 
-	    <div class="dislike"></div>    
+	    <div class="dislike"></div>
+
 	      <div class="img"><%= image_tag pet.picture.url(:medium), :class => "img-responsive" %></div>
 	      <%= link_to  pet_path(pet) do %>  
 	      <div class="row">
@@ -32,9 +34,11 @@
 
     <% end %>
 
-         <%= link_to "", dislike_friendships_path(friend_id: pet.id), id: "pet_#{pet.id}", method: :post %>
+ 
+         <%= link_to "", dislike_friendships_path(friend_id: pet.id), id: "pet_#{pet.id}", method: :post, :remote => true %>
+ 
          <%= link_to "", create_friendships_path( friend_id: pet.id), id: "pet_#{pet.id}", method: :post, :remote => true %>
-
+ 
 	</li>
  
 
