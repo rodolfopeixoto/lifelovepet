@@ -7,6 +7,8 @@
  * Licensed under GPL Version 2.
  * https://github.com/do-web/jTinder/blob/master/LICENSE
  */
+
+ 
 ;(function ($, window, document, undefined) {
 	var pluginName = "jTinder",
 		defaults = {
@@ -58,17 +60,38 @@
             current_pane = panes.length - 1;
         },
 
-showPane: function (index) {
+		showPane: function (index) {
 			panes.eq(current_pane).hide().remove();
 			current_pane = index;
-		
-		//   My code 	//
-		var li_count = $( "#tinderslide > ul > li" ).length;
-			
-			//Custom -> Add more elements if reaching the end!
-		    if ( li_count == 5 ) {
 
-						var last_id = $( "#tinderslide > ul > li" ).first().attr("id");
+			$(".spinner").show();
+			
+		    var li_count = $( "#tinderslide > ul > li" ).length;
+			//Custom -> Add more elements if reaching the end!
+		    if( li_count < 2 ) {
+        	    	
+		    		if( li_count == 0 ) {
+
+		    			    // make an ajax call passing along our last user id
+					        $.ajax({
+					            // make a get request to the server
+					            type: "GET",
+					            // get the url from the href attribute of our link
+					            url: "/pets",
+					            // the response will be a script
+					            dataType: "script",
+					 
+					            // upon success 
+					            success: function (e) {
+					            	$(".spinner").hide(); // Do something on success!
+					            }
+
+					        });
+		    		
+		    		} else {
+
+        	    	var last_id = $( "#tinderslide > ul > li" ).first().attr("id"); //panes.eq(current_pane).attr("id");
+						
 							// make an ajax call passing along our last user id
 					        $.ajax({
 					 
@@ -85,29 +108,12 @@ showPane: function (index) {
 					 
 					            // upon success 
 					            success: function (e) {
+					            	$(".spinner").hide(); // Do somethig on success!
 					            }
 
 					        });
-
-		    		
-		    } else if (li_count == 0 && load_more == true) {
-
-					        $.ajax({
-					            // make a get request to the server
-					            type: "GET",
-					            // get the url from the href attribute of our link
-					            url: "/pets",
-					            // the response will be a script
-					            dataType: "script",
-					 
-					            // upon success 
-					            success: function (e) {
-					            }
-
-					        });
-
-			} // End if li_count
-			//	My code 	//
+					}
+      		} 	
 
 		},
 
@@ -131,99 +137,102 @@ showPane: function (index) {
 				}
 				$that.next();
 			});
+
 		},
 
 		handler: function (ev) {
 			ev.preventDefault();
 
-			switch (ev.type) {
-				case 'touchstart':
-					if(touchStart === false) {
-						touchStart = true;
-						xStart = ev.originalEvent.touches[0].pageX;
-						yStart = ev.originalEvent.touches[0].pageY;
-					}
-				case 'mousedown':
-					if(touchStart === false) {
-						touchStart = true;
-						xStart = ev.pageX;
-						yStart = ev.pageY;
-					}
-				case 'mousemove':
-				case 'touchmove':
-					if(touchStart === true) {
-						var pageX = typeof ev.pageX == 'undefined' ? ev.originalEvent.touches[0].pageX : ev.pageX;
-						var pageY = typeof ev.pageY == 'undefined' ? ev.originalEvent.touches[0].pageY : ev.pageY;
+				switch (ev.type) {
+					case 'touchstart':
+						if(touchStart === false) {
+							touchStart = true;
+							xStart = ev.originalEvent.touches[0].pageX;
+							yStart = ev.originalEvent.touches[0].pageY;
+						}
+					case 'mousedown':
+						if(touchStart === false) {
+							touchStart = true;
+							xStart = ev.pageX;
+							yStart = ev.pageY;
+						}
+					case 'mousemove':
+					case 'touchmove':
+						if(touchStart === true) {
+							var pageX = typeof ev.pageX == 'undefined' ? ev.originalEvent.touches[0].pageX : ev.pageX;
+							var pageY = typeof ev.pageY == 'undefined' ? ev.originalEvent.touches[0].pageY : ev.pageY;
+							var deltaX = parseInt(pageX) - parseInt(xStart);
+							var deltaY = parseInt(pageY) - parseInt(yStart);
+							var percent = ((100 / pane_width) * deltaX) / pane_count;
+							posX = deltaX + lastPosX;
+							posY = deltaY + lastPosY;
+
+							panes.eq(current_pane).css("transform", "translate(" + posX + "px," + posY + "px) rotate(" + (percent / 2) + "deg)");
+
+							var opa = (Math.abs(deltaX) / $that.settings.threshold) / 100 + 0.2;
+							if(opa > 1.0) {
+								opa = 1.0;
+							}
+							if (posX >= 0) {
+								panes.eq(current_pane).find($that.settings.likeSelector).css('opacity', opa);
+								panes.eq(current_pane).find($that.settings.dislikeSelector).css('opacity', 0);
+							} else if (posX < 0) {
+
+								panes.eq(current_pane).find($that.settings.dislikeSelector).css('opacity', opa);
+								panes.eq(current_pane).find($that.settings.likeSelector).css('opacity', 0);
+							}
+						}
+						break;
+					case 'mouseup':
+					case 'touchend':
+						touchStart = false;
+						var pageX = (typeof ev.pageX == 'undefined') ? ev.originalEvent.changedTouches[0].pageX : ev.pageX;
+						var pageY = (typeof ev.pageY == 'undefined') ? ev.originalEvent.changedTouches[0].pageY : ev.pageY;
 						var deltaX = parseInt(pageX) - parseInt(xStart);
 						var deltaY = parseInt(pageY) - parseInt(yStart);
-						var percent = ((100 / pane_width) * deltaX) / pane_count;
+
 						posX = deltaX + lastPosX;
 						posY = deltaY + lastPosY;
+						var opa = Math.abs((Math.abs(deltaX) / $that.settings.threshold) / 100 + 0.2);
 
-						panes.eq(current_pane).css("transform", "translate(" + posX + "px," + posY + "px) rotate(" + (percent / 2) + "deg)");
-
-						var opa = (Math.abs(deltaX) / $that.settings.threshold) / 100 + 0.2;
-						if(opa > 1.0) {
-							opa = 1.0;
-						}
-						if (posX >= 0) {
-							panes.eq(current_pane).find($that.settings.likeSelector).css('opacity', opa);
-							panes.eq(current_pane).find($that.settings.dislikeSelector).css('opacity', 0);
-						} else if (posX < 0) {
-
-							panes.eq(current_pane).find($that.settings.dislikeSelector).css('opacity', opa);
-							panes.eq(current_pane).find($that.settings.likeSelector).css('opacity', 0);
-						}
-					}
-					break;
-				case 'mouseup':
-				case 'touchend':
-					touchStart = false;
-					var pageX = (typeof ev.pageX == 'undefined') ? ev.originalEvent.changedTouches[0].pageX : ev.pageX;
-					var pageY = (typeof ev.pageY == 'undefined') ? ev.originalEvent.changedTouches[0].pageY : ev.pageY;
-					var deltaX = parseInt(pageX) - parseInt(xStart);
-					var deltaY = parseInt(pageY) - parseInt(yStart);
-
-					posX = deltaX + lastPosX;
-					posY = deltaY + lastPosY;
-					var opa = Math.abs((Math.abs(deltaX) / $that.settings.threshold) / 100 + 0.2);
-
-					if (opa >= 1) {
-						if (posX > 0) {
-							panes.eq(current_pane).animate({"transform": "translate(" + (pane_width) + "px," + (posY + pane_width) + "px) rotate(60deg)"}, $that.settings.animationSpeed, function () {
-								if($that.settings.onLike) {
-									$that.settings.onLike(panes.eq(current_pane));
-								}
-								$that.next();
-							});
+						if (opa >= 1) {
+							if (posX > 0) {
+								panes.eq(current_pane).animate({"transform": "translate(" + (pane_width) + "px," + (posY + pane_width) + "px) rotate(60deg)"}, $that.settings.animationSpeed, function () {
+									if($that.settings.onLike) {
+										$that.settings.onLike(panes.eq(current_pane));
+									}
+									$that.next();
+								});
+							} else {
+								panes.eq(current_pane).animate({"transform": "translate(-" + (pane_width) + "px," + (posY + pane_width) + "px) rotate(-60deg)"}, $that.settings.animationSpeed, function () {
+									if($that.settings.onDislike) {
+										$that.settings.onDislike(panes.eq(current_pane));
+									}
+									$that.next();
+								});
+							}
 						} else {
-							panes.eq(current_pane).animate({"transform": "translate(-" + (pane_width) + "px," + (posY + pane_width) + "px) rotate(-60deg)"}, $that.settings.animationSpeed, function () {
-								if($that.settings.onDislike) {
-									$that.settings.onDislike(panes.eq(current_pane));
-								}
-								$that.next();
-							});
+							lastPosX = 0;
+							lastPosY = 0;
+							panes.eq(current_pane).animate({"transform": "translate(0px,0px) rotate(0deg)"}, $that.settings.animationRevertSpeed);
+							panes.eq(current_pane).find($that.settings.likeSelector).animate({"opacity": 0}, $that.settings.animationRevertSpeed);
+							panes.eq(current_pane).find($that.settings.dislikeSelector).animate({"opacity": 0}, $that.settings.animationRevertSpeed);
 						}
-					} else {
-						lastPosX = 0;
-						lastPosY = 0;
-						panes.eq(current_pane).animate({"transform": "translate(0px,0px) rotate(0deg)"}, $that.settings.animationRevertSpeed);
-						panes.eq(current_pane).find($that.settings.likeSelector).animate({"opacity": 0}, $that.settings.animationRevertSpeed);
-						panes.eq(current_pane).find($that.settings.dislikeSelector).animate({"opacity": 0}, $that.settings.animationRevertSpeed);
-					}
-					break;
-			}
-		}
+						break;
+				}
+			} // SWITCH -- END
+	
 	};
 
 	$.fn[ pluginName ] = function (options) {
 		this.each(function () {
-			if (!$.data(this, "plugin_" + pluginName)) {
-				$.data(this, "plugin_" + pluginName, new Plugin(this, options));
-			}
-			else if ($.isFunction(Plugin.prototype[options])) {
+            if (!$.data(this, "plugin_" + pluginName)) {
+                $.data(this, "plugin_" + pluginName, new Plugin(this, options));
+            }
+            else if ($.isFunction(Plugin.prototype[options])) {
 				$.data(this, 'plugin_' + pluginName)[options]();
-		    }else {
+		    }
+            else {
                 $.data(this, "plugin_" + pluginName).bindNew(this);
             } 
 		});
@@ -232,3 +241,9 @@ showPane: function (index) {
 	};
 
 })(jQuery, window, document);
+
+
+
+
+
+
