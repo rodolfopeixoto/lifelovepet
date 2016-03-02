@@ -15,6 +15,14 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale}.merge options
   end
 
+  def after_sign_in_path_for(user) 
+    if current_user.pet.nil? 
+     return  new_pet_url
+    else 
+      return authenticated_root_url 
+    end
+  end 
+
   protected
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up)        { |u| u.permit(:email, :firstName, :lastName, :dateOfBirth, :age, :gender, :password, :password_confirmation, :city, :location, :state, :role ) }
