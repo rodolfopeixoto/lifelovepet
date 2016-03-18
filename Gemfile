@@ -75,3 +75,4 @@ gem "paperclip"
 gem 'aws-sdk', '< 2.0' 
 gem "cancan"
 gem 'rails_admin'
+gem 'jquery-ui-rails'

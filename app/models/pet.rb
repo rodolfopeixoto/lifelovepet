@@ -42,8 +42,7 @@ class Pet < ActiveRecord::Base
   def matches(current_user)
       self.friendships.where(state: "pending").map(&:friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
   end
-
-
+  
   def request_match(pet_2)
     self.friendships.create(friend: pet_2)
   end

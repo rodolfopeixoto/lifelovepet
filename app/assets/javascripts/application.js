@@ -21,4 +21,5 @@
 //= require jquery.easing.min
 //= require jasny-bootstrap.min  
 //= require sweetalert.min 
+//= require jquery-ui
 //= require_tree .
