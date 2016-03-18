@@ -1,8 +1,6 @@
 class Pet < ActiveRecord::Base
 
       validates :picture, presence: false,  allow_nil: false
-
-      default_scope { order('id DESC') }
  
 
       belongs_to :user
@@ -21,7 +19,7 @@ class Pet < ActiveRecord::Base
                         
       
   # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/ 
 
 
   def self.animal(pet)
@@ -39,11 +37,10 @@ class Pet < ActiveRecord::Base
       where.not(id: current_user.pet.id)
   end
 
-
-
+ 
   #Friendship
   def matches(current_user)
-      friendships.where(state: "peding").map(&friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
+      self.friendships.where(state: "pending").map(&:friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
   end
 
 

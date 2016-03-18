@@ -1,4 +1,4 @@
 $( "#tinderslide ul" ).append('<%= escape_javascript(render(:partial => @pets, :collection => @pets)) %>');
-$("#tinderslide > ul li").tsort({attr:"id"});
+$("#tinderslide > ul li").tinysort({attr:"id"});
 $("#tinderslide").jTinder();
 load_more = true;

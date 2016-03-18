@@ -23,11 +23,8 @@ class FriendshipsController < ApplicationController
 
    #friendships_controller.rb
    def dislike
-     #unless @inverse_friendships.blank?   
       @friendship = current_user.pet.dislike_friendship(@friend)  
       render nothing: true
-     #else
-     #end
    end
 
 	 def destroy
