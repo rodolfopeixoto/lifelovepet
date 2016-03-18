@@ -1,5 +1,6 @@
 class Pet < ActiveRecord::Base
 
+
       validates :picture, presence: false,  allow_nil: false
  
 
@@ -33,16 +34,19 @@ class Pet < ActiveRecord::Base
       end
   end
 
-  def self.not_me(current_user)
-      where.not(id: current_user.pet.id)
+  def self.pick_next_friend(current_user)
+      where.not(id: current_user.pet.id).order("RANDOM()")
   end
 
+  def inverse_dislike(current_pet) 
+      current_pet.inverse_friendships.where(state: "pending").map(&:pet) 
+  end
  
   #Friendship
   def matches(current_user)
-      self.friendships.where(state: "pending").map(&:friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
+      friendships.where(state: "pending").map(&:friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
   end
-  
+
   def request_match(pet_2)
     self.friendships.create(friend: pet_2)
   end
@@ -60,9 +64,6 @@ class Pet < ActiveRecord::Base
     self.friendships.where(friend: pet_2).first.update_attributes(state: "dislike", friended_at: Time.now)
   end
 
-  def self.not_show_dislike(pet_friend)
-    pet_friend.where.not(state: "dislike")
-  end
 
   def remove_match(pet2)
     inverse_friendship = inverse_friendships.where(pet_id: pet2).first

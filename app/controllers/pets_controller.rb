@@ -7,7 +7,7 @@ class PetsController < ApplicationController
 
   def index
  
-      @pets = Pet.not_me(current_user).animal(current_user.pet)
+      @pets = Pet.pick_next_friend(current_user).animal(current_user.pet).inverse_dislike(current_user.pet)
       respond_to do |format|
         format.html
         format.js
