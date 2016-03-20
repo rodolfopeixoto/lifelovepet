@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/yhoshino11/has_friendship.git
+  revision: d4a8a8597cd30f1260bd29076866ef981e4fe699
+  branch: devel
+  specs:
+    has_friendship (0.0.3)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -276,6 +284,7 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-sass (~> 4.5.0)
   google-analytics-rails (= 1.0.0)
+  has_friendship!
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails

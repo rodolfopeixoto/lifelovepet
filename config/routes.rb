@@ -21,10 +21,10 @@ Rails.application.routes.draw do
       end
     end
   
-  post    'create_friendships'   => 'friendships#create'
-  delete  'destroy_friendships'  => 'friendships#destroy' 
-  put     'dislike_friendships'   => 'friendships#dislike'  
-  get     'matches/get_email'    => 'pets#get_email'
+  post    'pets/like'                  => 'pets#like'
+  post    'pets/dislike'               => 'pets#dislike'  
+  delete  'pets/destroy_friendships'   => 'pets#destroy_friendships' 
+  get     'matches/get_email'          => 'pets#get_email'
 
 end 
   # The priority is based upon order of creation: first created -> highest priority.

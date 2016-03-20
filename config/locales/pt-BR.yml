@@ -23,6 +23,9 @@ pt-BR:
         animal_cat: Gato
         age: ano(s)
         ageMonth: mes(es)
+        gender: Gênero
+        gender_male: Macho
+        gender_female: Fêmea
     submit:
       user:
         create: Logar
@@ -75,17 +78,6 @@ pt-BR:
         user: Usuário
   pets:
     edit: Editar
-  pets:
-    show:
-      animal: Animal
-      dog: Cachorro
-      cat: Gato
-      breed: Raça
-      size: Tamanho
-      age: Idade
-      years: Ano(s)
-      month: Mes(es)
-      bio: Caracteristicas
   devise:
     user:
       edit:
@@ -95,7 +87,23 @@ pt-BR:
           message: (deixe em branco se você não quer mudá-lo)
   pets:
     form:
-      title: Pet
+      title: Pet    
+    show: 
+      animal: Animal
+      dog: Cachorro
+      cat: Gato
+      breed: Raça
+      size: Tamanho
+      small: Pequeno
+      medium: Médio
+      big: Grande
+      age: Idade
+      years: Ano(s)
+      month: Mes(es)
+      bio: Caracteristicas 
+      gender: Gênero
+      gender_male: Macho
+      gender_female: Fêmea
   profile:
     title: Perfil do Usuário
     age: Idade

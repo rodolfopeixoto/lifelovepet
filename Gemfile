@@ -76,3 +76,4 @@ gem 'aws-sdk', '< 2.0'
 gem "cancan"
 gem 'rails_admin'
 gem 'jquery-ui-rails'
+gem 'has_friendship', git: 'https://github.com/yhoshino11/has_friendship.git', branch: 'devel'

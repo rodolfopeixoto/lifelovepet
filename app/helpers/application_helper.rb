@@ -7,5 +7,10 @@ module ApplicationHelper
        	city[0]
        end
 	end
+
+
+	def setting_language(word)
+      t('pets.show.' + word)
+	end
  
 end

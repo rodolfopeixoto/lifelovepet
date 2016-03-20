@@ -19,7 +19,7 @@
   <div class="col-xs-6">
   <br>
       <label><%= t('pets.show.animal') %></label>
-   <p><%= @pet.animal == "cat" ? t('pets.show.cat') : t('pets.show.dog') %></p>
+   <p><%= setting_language(@pet.animal) %></p>
   </div>
   <div class="col-xs-6"> 
   <br>
@@ -33,7 +33,7 @@
   <div class="col-xs-6">
   
    <label><%= t('pets.show.size') %></label>
-   <p><%= @pet.size %></p>
+   <p><%= setting_language(@pet.size) %></p>
 
   </div>
   <div class="col-xs-6">
@@ -52,7 +52,8 @@
 
   </div>
   <div class="col-xs-6">
- 
+    <label><%= t('pets.show.gender') %></label>
+    <p><%=  @pet.gender %></p>
   </div>
 </div>
 

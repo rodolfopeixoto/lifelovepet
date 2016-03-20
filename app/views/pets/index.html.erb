@@ -34,8 +34,8 @@
        var myId = $("#tinderslide > ul li").last().attr("id");
 
         $.ajax ({
-            type: 'PUT',
-            url: '/dislike_friendships',
+            type: 'POST',
+            url: '/pets/dislike',
             data: {friend_id: myId}
         })
 
@@ -46,7 +46,7 @@
 
         $.ajax ({
             type: 'POST',
-            url: '/create_friendships',
+            url: '/pets/like',
             data: {friend_id: myId}
         })
 

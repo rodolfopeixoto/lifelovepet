@@ -1,13 +1,14 @@
 class PetsController < ApplicationController
-  before_action               :authenticate_user!
-  before_action               :set_pet, only: [:show, :edit, :update, :destroy, :profileuser, :get_email]
-  before_action               :check_user, only: [:edit, :destroy, :update] 
+  before_action               :authenticate_user! 
+  before_action               :set_friend_id, only:    [:like, :dislike]
+  before_action               :set_pet,       only:    [:show, :edit, :update, :destroy, :profileuser, :get_email]
+  before_action               :check_user,    only:    [:edit, :destroy, :update] 
   load_and_authorize_resource except: [:create]
 
 
   def index
  
-      @pets = Pet.pick_next_friend(current_user).animal(current_user.pet).inverse_dislike(current_user.pet)
+      @pets = Pet.not_current_pet(current_user).not_pending(current_user)
       respond_to do |format|
         format.html
         format.js
@@ -33,7 +34,7 @@ def create
  else
   flash[:alert] = "Você só pode cadastrar 1 Pet."
   redirect_to pets_path
-end
+ end
 end
 
 def show
@@ -80,13 +81,42 @@ def get_email
   end
 end
 
+#Friendship
+def like
+
+  if current_user.pet.friendships.where(friend_id: @inverse_pet.id, status: "pending").exists?
+    current_user.pet.accept_request(@inverse_pet) 
+    render nothing: true
+  else
+    current_user.pet.friend_request(@inverse_pet)
+    render nothing: true 
+  end 
+
+end
+
+def dislike
+    if current_user.pet.friendships.where(friend_id: @inverse_pet.id, status: "requested").exists?
+      current_user.pet.decline_request(@inverse_pet)
+     render nothing: true
+    else
+      current_user.pet.friend_request(@inverse_pet) 
+      current_user.pet.decline_request(@inverse_pet)
+     render nothing: true
+    end
+end
+# FRIENDSHIP
 private
 
-def pet_params
-  params.require(:pet).permit(:name, :size, :age, :breed, :ageMonth, :animal, :user_id, :bio, :picture)
-end
+  def pet_params
+    params.require(:pet).permit(:name, :size, :gender, :age, :breed, :ageMonth, :animal, :user_id, :bio, :picture)
+  end
 
-def set_pet
-  @pet = Pet.find(params[:id])  
-end
+  def set_pet
+    @pet = Pet.find(params[:id])  
+  end
+
+  def set_friend_id
+      @inverse_pet = Pet.find(params[:friend_id])
+  end
+
 end

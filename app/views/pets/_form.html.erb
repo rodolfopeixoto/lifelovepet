@@ -44,6 +44,17 @@
   </div>
 
 
+  <div class="form-group">
+   <%= f.label :gender %> 
+   <fieldset>
+     <%= f.radio_button :gender, "male" %>
+     <%= f.label :gender_male  %>
+     <%= f.radio_button :gender, "female" %>
+     <%= f.label :gender_female %> 
+    </fieldset>
+  </div>
+
+
   <%= f.label :age %>
   <div class="form-group">
     <%= f.number_field :age, in: 0...15 %>

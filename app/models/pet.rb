@@ -1,12 +1,15 @@
 class Pet < ActiveRecord::Base
 
+      
+      has_friendship
+      scope :not_current_pet, ->(user) { where.not(id: user.pet.id) . where(animal: user.pet.animal) . where(breed: user.pet.breed) . where(size: user.pet.size) . where.not(gender: user.pet.gender)  }
+      default_scope { order('RANDOM()').limit(2) }
+      scope :not_pending, ->(user) { user.pet.friendships.where(status: "pending") } #not function 
 
       validates :picture, presence: false,  allow_nil: false
  
 
       belongs_to :user
-      has_many :friendships, dependent: :destroy
-      has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
 
       has_attached_file :picture,
                         :storage => :s3,
@@ -32,47 +35,6 @@ class Pet < ActiveRecord::Base
         else
           all
       end
-  end
-
-  def self.pick_next_friend(current_user)
-      where.not(id: current_user.pet.id).order("RANDOM()")
-  end
-
-  def inverse_dislike(current_pet) 
-      current_pet.inverse_friendships.where(state: "pending").map(&:pet) 
-  end
- 
-  #Friendship
-  def matches(current_user)
-      friendships.where(state: "pending").map(&:friend) + current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
-  end
-
-  def request_match(pet_2)
-    self.friendships.create(friend: pet_2)
-  end
-
-  def request_unlike(pet_2)
-    self.friendships.create(friend: pet_2)
-  end
-
-  def accept_match(pet_2)
-    self.friendships.where(friend: pet_2).first.update_attributes(:state, "ACTIVE")
-  end
-
-  def dislike_friendship(pet_2)
-    self.friendships.create(friend: pet_2)
-    self.friendships.where(friend: pet_2).first.update_attributes(state: "dislike", friended_at: Time.now)
-  end
-
-
-  def remove_match(pet2)
-    inverse_friendship = inverse_friendships.where(pet_id: pet2).first
-
-    if inverse_friendship
-      self.inverse_friendships.where(pet_id: pet2).first.destroy
-    else
-      self.friendships.where(friend_id: pet2).first.destroy
-    end
   end
 
 end
