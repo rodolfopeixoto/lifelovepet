@@ -11,14 +11,10 @@ class Pet < ActiveRecord::Base
       has_many :friendships, dependent: :destroy
       has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
       has_attached_file :picture,
-                        :storage => :s3,
+                        :storage     => :s3, 
+                        :s3_host_name => 's3-sa-east-1.amazonaws.com', 
                         :styles => { :medium => "324x204!", :thumb => "100x100!" },
-                        :default_url => "/images/:style/missing.jpg",
-                        :bucket => "3lovet",
-                        :s3_credentials => {
-                        :access_key_id => "AKIAJEMJ4MAVIKZFOCUQ",
-                        :secret_access_key => "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"
-                          } 
+                         :default_url => "/images/:style/missing.jpg" 
                         
       
   # Validate the attached image is image/jpg, image/png, etc

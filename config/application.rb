@@ -12,16 +12,11 @@ module Tlovet
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
  
-       config.middleware.use Rack::Deflater
-
-
-        config.paperclip_defaults = {
-         :storage => :s3, 
-         :s3_region         => 'us-east-1',
-         :s3_credentials => { 
-           :bucket            => ENV['AWS_BUCKET'],
-           :access_key_id     => ENV['AWS_ACCESS_KEY_ID'],
-           :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    config.paperclip_defaults = { 
+      :s3_credentials => { 
+         :bucket => ENV['AWS_BUCKET'],
+         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+         :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
     }
 
