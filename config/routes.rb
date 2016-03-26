@@ -21,8 +21,8 @@ Rails.application.routes.draw do
       end
     end
   
-  post    'pets/like'                  => 'pets#like'
-  post    'pets/dislike'               => 'pets#dislike'  
+  post    'pets/like'                  => 'friendships#like'
+  post    'pets/dislike'               => 'friendships#dislike'  
   delete  'pets/destroy_friendships'   => 'pets#destroy_friendships' 
   get     'matches/get_email'          => 'pets#get_email'
 

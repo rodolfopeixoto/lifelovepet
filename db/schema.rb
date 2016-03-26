@@ -14,13 +14,12 @@
 ActiveRecord::Schema.define(version: 20160319145744) do
 
   create_table "friendships", force: :cascade do |t|
-    t.integer  "friendable_id"
-    t.string   "friendable_type"
+    t.integer  "pet_id"
     t.integer  "friend_id"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "blocker_id"
+    t.string   "state",       default: "pending"
+    t.datetime "friended_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "pets", force: :cascade do |t|

@@ -8,7 +8,12 @@ class PetsController < ApplicationController
 
   def index
  
-      @pets = Pet.not_current_pet(current_user).animal(current_user).breed(current_user).gender(current_user).pending(current_user.pet)
+      if params[:id]
+        @pets = Pet.not_current_pet(current_user).animal(current_user).breed(current_user).gender(current_user).where('id < ?', params[:id]).limit(10) - current_user.pet.matches(current_user.pet)
+      else
+        @pets = Pet.not_current_pet(current_user).animal(current_user).breed(current_user).gender(current_user).limit(10) - current_user.pet.matches(current_user.pet)
+      end
+
       respond_to do |format|
         format.html
         format.js
@@ -72,14 +77,16 @@ def profileuser
 end
 
 def matches
-  @matches = current_user.pet.friendships.where(state: "ACTIVE").map(&:friend) + current_user.pet.inverse_friendships.where(state: "ACTIVE").map(&:pet)
-end
-
-def get_email
-  respond_to do |format|
-    format.js
+    authorize! :read, @user
+    @matches = current_user.friendships.where(state: "ACTIVE").map(&:friend) + current_user.inverse_friendships.where(state: "ACTIVE").map(&:user)
   end
-end
+
+
+  def get_email
+    respond_to do |format|
+      format.js
+    end
+  end
 
 #Friendship
 def like

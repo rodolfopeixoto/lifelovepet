@@ -241,9 +241,3 @@
 	};
 
 })(jQuery, window, document);
-
-
-
-
-
-
