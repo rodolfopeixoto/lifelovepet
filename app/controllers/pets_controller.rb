@@ -3,12 +3,12 @@ class PetsController < ApplicationController
   before_action               :set_friend_id, only:    [:like, :dislike]
   before_action               :set_pet,       only:    [:show, :edit, :update, :destroy, :profileuser, :get_email]
   before_action               :check_user,    only:    [:edit, :destroy, :update] 
-  load_and_authorize_resource except: [:create]
+  load_and_authorize_resource except: [:create, :dislike, :like]
 
 
   def index
  
-      @pets = Pet.not_current_pet(current_user).not_pending(current_user)
+      @pets = Pet.not_current_pet(current_user).animal(current_user).breed(current_user).gender(current_user).pending(current_user.pet)
       respond_to do |format|
         format.html
         format.js
@@ -94,13 +94,14 @@ def like
 
 end
 
+
 def dislike
     if current_user.pet.friendships.where(friend_id: @inverse_pet.id, status: "requested").exists?
-      current_user.pet.decline_request(@inverse_pet)
+      current_user.pet.block_friend(@inverse_pet)
      render nothing: true
     else
       current_user.pet.friend_request(@inverse_pet) 
-      current_user.pet.decline_request(@inverse_pet)
+      current_user.pet.block_friend(@inverse_pet)
      render nothing: true
     end
 end

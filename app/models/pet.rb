@@ -1,16 +1,14 @@
 class Pet < ActiveRecord::Base
 
-      
-      has_friendship
-      scope :not_current_pet, ->(user) { where.not(id: user.pet.id) . where(animal: user.pet.animal) . where(breed: user.pet.breed) . where(size: user.pet.size) . where.not(gender: user.pet.gender)  }
-      default_scope { order('RANDOM()').limit(2) }
-      scope :not_pending, ->(user) { user.pet.friendships.where(status: "pending") } #not function 
-
-      validates :picture, presence: false,  allow_nil: false
+      default_scope { order('RANDOM()').limit(2) }  
+      scope :not_current_pet, ->(user) { where.not(id: user.pet.id)           }
+      scope :animal,          ->(user) { where(animal: user.pet.animal)       }
+      scope :breed,           ->(user) { where(breed: user.pet.breed)         } 
+      scope :gender,          ->(user) { where.not(gender: user.pet.gender)   } 
  
 
       belongs_to :user
-
+      has_friendship
       has_attached_file :picture,
                         :storage => :s3,
                         :styles => { :medium => "324x204!", :thumb => "100x100!" },
@@ -24,17 +22,10 @@ class Pet < ActiveRecord::Base
       
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/ 
+  validates :picture, presence: false,  allow_nil: false
 
-
-  def self.animal(pet)
-      case pet.animal
-        when "cat"
-          where('animal = ?', 'cat')
-        when "dog"
-          where('animal = ?', 'dog')
-        else
-          all
-      end
+  def self.pending(current_pet)
+    current_pet.friendships.where.not(status: "pending").where.not(status: "blocked").collect{ |animal|  Pet.find(animal.friend_id) }
   end
 
 end
