@@ -22,4 +22,5 @@
 //= require jasny-bootstrap.min  
 //= require sweetalert.min 
 //= require jquery-ui
+//= require breeds
 //= require_tree .

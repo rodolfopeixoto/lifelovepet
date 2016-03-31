@@ -1,166 +1,21 @@
 <div class="sign_up">
   <h2 class="text-center">Sign up</h2>
 
+ 
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-<div class="row" style="border-bottom: 1px solid #D8ECCF;">
-  <div class="wizard">
-    <div class="wizard-inner">
+         <div class="form-group">
+            <%= f.label :firstName %>
+            <%= f.text_field :firstName, :class => "form-control" %>
+          </div>
 
-      <div class="connecting-line"></div>
-      <div class="connecting-line2"></div> 
-
-      <ul class="nav nav-tabs text-center" role="tablist">
-
-        <li role="presentation" class="active">
-          <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
-            <span class="round-tab">
-              <i class="fa fa-user"></i>
-            </span>
-          </a>
-
-
-
-
-        </li>
-
-        <li role="presentation" class="disabled">
-
-          <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
-            <span class="round-tab">
-             <i class="fa fa-user"></i>
-           </span>
-         </a>
-
-       </li>
-
-
-       <li role="presentation" class="disabled">
-        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
-          <span class="round-tab">
-            <i class="fa fa-user"></i>
-          </span>
-        </a>
-
-
-
-
-      </li>
-
-    </ul>
-  </div>
-</div>
-</div>
-<div class="row-fluid text-center" style="margin-top: 20px;">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="tab-content">
-    <div class="tab-pane active" role="tabpanel" id="step1">
-      <h4 class="text-left text_bold"><%= t('user.new.title.user') %></h4> 
-
-      
-             <div class="form-group">
+                       <div class="form-group">
                <%= f.label :email %>
                <%= f.email_field :email, :class => "form-control"%>
             </div>
 
 
-        
-
-      <div class="row">
-        <div class="col-md-6">      
-          <div class="form-group">
-            <%= f.label :firstName %>
-            <%= f.text_field :firstName, :class => "form-control" %>
-          </div>
-        </div>
-
-     <div class="col-md-6">      
-       <div class="form-group">
-        <%= f.label :lastName %>
-         <%= f.text_field :lastName, :class => "form-control" %>
-       </div>
-     </div>
-   </div>
-
-
-     <div class="form-group">
-   <%= f.label :gender %> 
-   <fieldset>
-     <%= f.radio_button :gender, "male" %>
-     <%= f.label :gender_male  %>
-     <%= f.radio_button :gender, "female" %>
-     <%= f.label :gender_female %> 
-    </fieldset>
-  </div>
-
-
-
-      <button type="button" class="btn btn-custom form-control btn-lg next-step"><%= t('button.next') %></button>
-    </div>
-
-    <div class="tab-pane" role="tabpanel" id="step2"> 
-    <h4 class="text-left text_bold"><%= t('user.new.title.user') %></h4>
- 
-
-
-        <div class="row">
-        <div class="col-md-6">
-
-          <div class="form-group">
-             <%= f.label :dateOfBirth %>
-             <%= f.date_field :dateOfBirth , :class => "form-control" %>
-          </div>
-
-        </div>
-        <div class="col-md-6">
-
-
-
-      <div class="form-group">
-        <%= f.label :city %>
-        <%= f.text_field :city, :class => "form-control" %>
-      </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-6">
- 
-             <div class="form-group">
-                <%= f.label :location %>
-                <%= f.text_field :location, :class => "form-control" %>
-            </div>
-
-      </div>
-      <div class="col-md-6">
-
-<div class="form-group">
-        <%= f.label :state %>
-        <%= f.select :state, 
-            options_for_select([['AC','AC'],['AL','AL'],['AP','AP'],['AM','AM'],['BA','BA'],['CE','CE'],['DF','DF'],['ES','ES'],
-              ['GO','GO'],['MA','MA'],['MT','MT'],['MS','MS'],['MG','MG'],['PA','PA'],['PB','PB'],['PR','PR'],['PE','PE'],['PI','PI'],
-              ['RJ','RJ'],['RN','RN'],['RS','RS'],['RO','RO'],['RR','RR'],['SC','SC'],['SP','SP'],['SE','SE'],['TO','TO']], :selected =>params[:state]),
-            {}, { :class => "form-control" }
-         %>
-      </div>
-
-      </div>
-   </div>
- 
-
-
-
-    <button type="button" class="btn btn-custom btn-lg form-control next-step"><%= t('button.next') %></button>
-  </div>
-  <div class="tab-pane" role="tabpanel" id="step3">
-  <h4 class="text-left text_bold"><%= t('user.new.title.user') %></h4>
-
-    <div class="text-center">
-      
-      
      <div class="form-group">
         <%= f.label :password %>
       <%= f.password_field :password, :class => "form-control" %>
@@ -170,23 +25,12 @@
         <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, :class => "form-control" %>
     </div>
-
-    </div>
+ 
 
     <div class="form-group"> 
       <%= f.submit :class => "btn btn-custom form-control text_bold" %>
     </div>
 
     
-
-
-
-
-  </div> 
-  <div class="clearfix"></div>
-</div>
-
-</div>
-
-<%= render "devise/shared/links" %>
+    <%= render "devise/shared/links" %>
 <% end %>

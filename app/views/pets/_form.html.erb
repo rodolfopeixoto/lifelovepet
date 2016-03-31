@@ -2,7 +2,7 @@
   <h2><%= t 'pets.form.title' %></h2>
 
 
-<%= form_for @pet, :html => {  :multipart => true} do |f| %>
+<%= form_for @pet, remote: true ,:html => {  :multipart => true} do |f| %>
 
 
   <div class="row">
@@ -69,16 +69,25 @@
    <%= f.label :animal %> 
     <fieldset>
       <%= f.label :animal_cat %>
-      <%= f.radio_button :animal, "cat"  %>
+      <%= f.radio_button :animal, "cat", name: "breed", checked: true  %> <!-- cat -->
       <%= f.label :animal_dog %>
-      <%= f.radio_button :animal, "dog"  %>
+      <%= f.radio_button :animal, "dog", name: "breed"  %> <!-- dog -->
     </fieldset>
   </div>
 
-   <div class="form-group">
+  <!-- DIV END -->
+
+   <div class="breeds" id="Breadscat">
       <%= f.label :breed %>
-      <%= f.text_field :breed, :id => "breeds" , :class => "form-control"  %>
+      <%= f.text_field :breed, :id => "breedsCat" , :class => "form-control"  %>
   </div>
+
+  <div class="breeds" id="Breadsdog" style="display: none;">
+      <%= f.label :breed %>
+      <%= f.text_field :breed, :id => "breedsDog" , :class => "form-control" %>
+  </div>
+
+    <!-- DIV END -->
 
   <div class="form-group">
     <%= f.label :bio %>
@@ -92,151 +101,5 @@
 </div>
 
 <script>
-  $(function(){
- 
-    var breedsCat = [
-    "Exotic Shorthair",
-    "Khao Manee",
-    "Korat",
-    "Chinese Li Hua",
-    "Asian—Burmilla",
-    "Asian—Smoke",
-    "Asian—Solid and Tortie",
-    "Asian—Tabby",
-    "Bombay",
-    "Singapura",
-    "European Burmese",
-    "American Burmese",
-    "Mandalay",
-    "Tonkinese",
-    "Oriental—Foreign White",
-    "Oriental—Solid",
-    "Oriental—Cinnamon and Fawn",
-    "Oriental—Smoke",
-    "Oriental—Shaded",
-    "Oriental—Tabby",
-    "Oriental—Tortie",
-    "Oriental—Bicolor",
-    "Havana",
-    "Thai",
-    "Siamese—Solid-Pointed",
-    "Siamese—Tabby-Pointed",
-    "Siamese—Tortie-Pointed",
-    "Colorpoint Shorthair",
-    "Seychellois",
-    "Snowshoe",
-    "American Shorthair",
-    "European Shorthair",
-    "Chartreux",
-    "Russian Blue",
-    "British Shorthair—Solid",
-    "British Shorthair—Colorpointed",
-    "British Shorthair-Bicolor",
-    "British Shorthair—Smoke",
-    "British Shorthair—Tabby",
-    "British Shorthair—Tipped",
-    "British Shorthair—Tortie",
-    "Turkish Shorthair",
-    "Ojos Azules",
-    "Egyptian Mau",
-    "Arabian Mau",
-    "Abyssinian",
-    "Australian Mist",
-    "Ceylon",
-    "Ocicat",
-    "Ocicat Classic",
-    "Sokoke",
-    "California Spangled",
-    "Toyger",
-    "Bengal",
-    "Kanaani",
-    "Savannah",
-    "Serengeti",
-    "Chausie",
-    "Munchkin",
-    "Kinkalow",
-    "Lambkin Dwarf",
-    "Bambino",
-    "Scottish Fold",
-    "Highlander",
-    "American Curl",
-    "Japanese Bobtail",
-    "Kurilian Bobtail",
-    "Mekong Bobtail",
-    "American Bobtail",
-    "Manx",
-    "Pixiebob",
-    "American Ringtail",
-    "Sphynx",
-    "Donskoy",
-    "Peterbald",
-    "Ural Rex",
-    "LaPerm",
-    "Selkirk Rex",
-    "Cornish Rex",
-    "Devon Rex",
-    "German Rex",
-    "American Wirehair",
-    "House cat—shorthair",
-    "Persian Solid",
-    "Persian—Blue- and Odd-eyed Bicolor",
-    "Persian—Cameo",
-    "Persian—Chinchilla",
-    "Persian—Golden",
-    "Persian—Pewter",
-    "Persian—Cameo Bicolor",
-    "Persian—Shaded Silver",
-    "Persian—Silver Tabby",
-    "Persian—Smoke",
-    "Persian—Smoke Bicolor",
-    "Persian—Tabby and Patched Tabby",
-    "Persian—Tabby Tricolor",
-    "Persian—Tortie and Calico",
-    "Persian—Bicolor",
-    "Himalayan",
-    "Balinese",
-    "Balinese-Javanese",
-    "York Chocolate",
-    "Oriental Longhair",
-    "Tiffanie",
-    "Chantilly/Tiffany",
-    "Birman",
-    "Maine Coon",
-    "Ragdoll",
-    "Ragamuffin",
-    "Somali",
-    "British Longhair",
-    "Nebelung",
-    "Norwegian Forest Cat",
-    "Turkish Van",
-    "Turkish Vankedisi",
-    "Turkish Angora",
-    "Siberian",
-    "Neva Masquerade",
-    "Munchkin",
-    "Kinkalow",
-    "Skookum",
-    "Napoleon",
-    "Scottish Fold",
-    "American Curl",
-    "Highlander",
-    "Japanese Bobtail",
-    "Kurilian Bobtail",
-    "Cymric",
-    "House cat—longhair" 
-    ];
 
-   // var breedsDog = [];
-
-    $("#breeds").autocomplete({
-      source: breedsCat
-    });
-
-    //$("#breeds").autocomplete({
-    //  source: breedsDog
-    //});
-
-
-
-  });
 </script>

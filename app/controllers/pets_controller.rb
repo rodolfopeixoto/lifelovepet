@@ -3,6 +3,7 @@ class PetsController < ApplicationController
   before_action               :set_friend_id, only:    [:like, :dislike]
   before_action               :set_pet,       only:    [:show, :edit, :update, :destroy, :profileuser, :get_email]
   before_action               :check_user,    only:    [:edit, :destroy, :update] 
+  before_action               :pet?,          except: [:new, :create]
   load_and_authorize_resource except: [:create, :dislike, :like]
 
 
@@ -71,6 +72,10 @@ end
 
 def check_user
   redirect_to pets_path unless current_user.id == @pet.user_id
+end
+
+def pet?
+  redirect_to new_pet_path if current_user.pet.nil?
 end
 
 def profileuser

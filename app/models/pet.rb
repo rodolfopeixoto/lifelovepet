@@ -19,7 +19,13 @@ class Pet < ActiveRecord::Base
       
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/ 
-  validates :picture, presence: false,  allow_nil: false
+  validates :picture  , presence: false,  allow_nil: false
+  validates :name     , presence: true
+  validates :size     , presence: true
+  validates :gender   , presence: true
+  validates :animal   , presence: true
+  validates :breed    , presence: true
+  validates :bio      , presence: true
 
 
   # Friendship Methods
