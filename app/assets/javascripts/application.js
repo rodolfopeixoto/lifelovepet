@@ -23,4 +23,5 @@
 //= require sweetalert.min 
 //= require jquery-ui
 //= require breeds
+//= require pet
 //= require_tree .

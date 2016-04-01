@@ -10,6 +10,11 @@ body {
 	max-width: 400px;
 }
 
+// image logo
+.l2p {
+	margin-bottom: 2em;
+}
+
 // PROFILE
 
 .description {
@@ -255,8 +260,9 @@ body {
 }
 
 .navbar-brand > img {
-	height: 80px; 
+	height: 60px; 
 	display: inline-block;
+	padding-top: 1em;
 }
 
 .button-nav {

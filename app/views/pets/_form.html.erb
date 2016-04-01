@@ -102,4 +102,23 @@
 
 <script>
 
+
+
+
+     //Select radio
+
+$(document).ready(function(){
+    
+    $("input[name$='breed']").click(function(){
+       var value = $(this).val();
+
+       $("div.breeds").hide();
+       $("#Breads" + value).show();
+    });
+
+ 
+
+
+ });
+
 </script>

@@ -1,8 +1,8 @@
 <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
     <ul class="nav navmenu-nav"> 
-    	<li class="active"><%= link_to '<i class="fa fa-search"></i> '.html_safe + t('nav.search'), pets_path  %></li>
+    	<li class="active"><%= link_to '<i class="fa fa-search"></i> '.html_safe + t('nav.search'), pets_path, method: :get  %></li>
     	<li><%= link_to '<i class="fa fa-users"></i> '.html_safe + t('nav.user'), edit_user_registration_path %></li>
-      <li><%= link_to '<i class="fa fa-paw"></i>  '.html_safe + t('nav.pet'), current_user.pet.nil? ? new_pet_path : pet_path(current_user.pet)  %></li>
+      <li><%= link_to '<i class="fa fa-paw"></i>  '.html_safe + t('nav.pet'), current_user.pet.nil? ? new_pet_path : pet_path(current_user.pet)  %></li> 
       <!--
     	<li><a href="#"><i class="fa fa-paw"></i> Usuário</a></li>
     	<li><a href="#"><i class="fa fa-filter"></i> Filtro</a></li>
