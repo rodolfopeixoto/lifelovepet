@@ -1,8 +1,4 @@
-
-
-
-
-  $(function(){
+$(function(){
  
     var breedsCat = [
     "Raça Não Definida",

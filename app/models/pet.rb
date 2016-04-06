@@ -24,7 +24,7 @@ class Pet < ActiveRecord::Base
   validates :size     , presence: true
   validates :gender   , presence: true
   validates :animal   , presence: true
-  validates :breed    , presence: true
+  #validates :breed    , presence: true
   validates :bio      , presence: true
 
 
