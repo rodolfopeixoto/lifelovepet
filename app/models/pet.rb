@@ -14,7 +14,7 @@ class Pet < ActiveRecord::Base
                         :storage     => :s3, 
                         :s3_host_name => 's3-sa-east-1.amazonaws.com', 
                         :styles => { :medium => "324x204!", :thumb => "100x100!" },
-                         :default_url => "/images/:style/missing.jpg" 
+                         :default_url => "/images/missing.jpg" 
                         
       
   # Validate the attached image is image/jpg, image/png, etc
