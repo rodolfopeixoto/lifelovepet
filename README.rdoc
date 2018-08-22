@@ -2,9 +2,9 @@
 
 Desenvolvimento de um MVP de uma antiga startup minha, Life Love Pet, um tinder para que o seu animal(cão ou gato de raça) encontre um amor para chamar de seu.
 
-Exemplo da aplicação: https://rogpebolsa.herokuapp.com/
+Exemplo da aplicação: https://lovet.herokuapp.com/
 
-[www.about.me/rodolfopeixoto](http://www.about.me/rodolfopeixoto) 
+[About](http://www.about.me/rodolfopeixoto) 
 
 Versão do Projeto 0.1
 ================
